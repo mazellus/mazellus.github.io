@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nous soutenir – Les Nationalistes | Association indépendante</title>
+    <meta name="description" content="Les Nationalistes est une association loi 1901 100% indépendante, financée uniquement par les adhésions et les dons. Soutenez une réflexion libre et citoyenne.">
+    <link rel="canonical" href="https://www.lesnationalistes.fr/nous-soutenir/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://www.lesnationalistes.fr/nous-soutenir/#webpage",
+      "url": "https://www.lesnationalistes.fr/nous-soutenir/",
+      "name": "Nous soutenir – Les Nationalistes",
+      "description": "Soutenez Les Nationalistes : association indépendante financée par les citoyens. Adhérez ou faites un don pour garantir notre liberté de parole.",
+      "isPartOf": { "@id": "https://www.lesnationalistes.fr/#website" },
+      "inLanguage": "fr-FR"
+    }
+    </script>
+
+    <style>
+        :root {
+            --bleu-marine: #1a3a52;
+            --bleu-profond: #0d2436;
+            --bleu-ciel: #5b8fb9;
+            --or-subtil: #c5a572;
+            --or-hover: #b8960b;
+            --vert-don: #2d7a4f;
+            --vert-hover: #246340;
+            --gris-clair: #f4f6f8;
+            --gris-moyen: #e1e5ea;
+            --gris-fonce: #4a5568;
+            --blanc: #ffffff;
+            --texte: #1f2937;
+            --font-display: 'Spectral', serif;
+            --font-body: 'Source Sans 3', sans-serif;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 30px rgba(0,0,0,0.12);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--texte);
+            line-height: 1.7;
+            background: var(--blanc);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--bleu-marine);
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* ============================================
+           HEADER
+        ============================================ */
+        header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.98) 0%, rgba(244,246,248,0.96) 100%);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--gris-moyen);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            box-shadow: 0 4px 16px rgba(26,58,82,0.12);
+            background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(244,246,248,1) 100%);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.2rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex; align-items: center; gap: 1rem;
+            font-family: var(--font-display);
+            font-size: 1.5rem; font-weight: 700;
+            color: var(--bleu-marine);
+            transition: var(--transition);
+            z-index: 1001;
+        }
+
+        .logo:hover { opacity: 0.85; }
+
+        .logo-icon {
+            width: 42px; height: 42px;
+            background: linear-gradient(135deg, var(--bleu-marine), var(--bleu-ciel));
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-weight: 700; font-size: 1.3rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .logo-image {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .hamburger {
+            display: none; flex-direction: column; gap: 5px;
+            cursor: pointer; z-index: 1001; padding: 8px;
+        }
+
+        .hamburger span {
+            width: 25px; height: 3px;
+            background: var(--bleu-marine);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+
+        nav { display: flex; gap: 2.5rem; align-items: center; }
+
+        nav a {
+            font-weight: 500; font-size: 1rem;
+            color: var(--gris-fonce);
+            position: relative; transition: var(--transition);
+        }
+
+        nav a::after {
+            content: ''; position: absolute;
+            bottom: -5px; left: 0;
+            width: 0; height: 2px;
+            background: var(--or-subtil);
+            transition: var(--transition);
+        }
+
+        nav a:hover { color: var(--bleu-marine); }
+        nav a:hover::after { width: 100%; }
+
+        .mobile-cta { display: none; }
+        .header-cta { display: flex; gap: 1rem; }
+
+        .btn {
+            padding: 0.75rem 1.8rem; border-radius: 8px;
+            font-weight: 600; font-size: 0.95rem;
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            transition: var(--transition); cursor: pointer; border: none;
+            font-family: var(--font-body);
+            text-align: center;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--bleu-marine), var(--bleu-profond));
+            color: white; box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+        .btn-secondary { background: var(--or-subtil); color: white; }
+        .btn-secondary:hover { background: var(--or-hover); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+        .btn-don { background: var(--vert-don); color: white; }
+        .btn-don:hover { background: var(--vert-hover); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+        .btn-large {
+            padding: 1rem 2.5rem;
+            font-size: 1.05rem;
+        }
+
+        /* ============================================
+           HERO
+        ============================================ */
+        .page-hero {
+            margin-top: 76px;
+            background: linear-gradient(135deg, var(--bleu-profond) 0%, var(--bleu-marine) 100%);
+            padding: 6rem 3rem 5rem;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute; top: -50%; right: -10%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(91,143,185,0.18) 0%, transparent 70%);
+            border-radius: 50%; pointer-events: none;
+        }
+
+        .page-hero-content { position: relative; z-index: 2; }
+
+        .page-hero-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: rgba(255,255,255,0.12);
+            padding: 0.5rem 1.2rem; border-radius: 50px;
+            font-size: 0.9rem; font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .page-hero h1 {
+            font-size: 3.5rem; color: white;
+            margin-bottom: 1.2rem;
+        }
+
+        .page-hero p {
+            font-size: 1.2rem; opacity: 0.9;
+            max-width: 700px; margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ============================================
+           SECTION INDÉPENDANCE
+        ============================================ */
+        .independance-section {
+            padding: 5rem 3rem;
+            background: white;
+        }
+
+        .independance-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .independance-container h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--bleu-marine);
+        }
+
+        .independance-container > p {
+            font-size: 1.15rem;
+            color: var(--gris-fonce);
+            margin-bottom: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .independance-highlight {
+            background: var(--gris-clair);
+            border-left: 4px solid var(--bleu-ciel);
+            border-radius: 0 12px 12px 0;
+            padding: 2rem 2.5rem;
+            margin: 3rem 0;
+            text-align: left;
+        }
+
+        .independance-highlight p {
+            font-size: 1.1rem;
+            color: var(--gris-fonce);
+            margin-bottom: 1rem;
+            line-height: 1.75;
+        }
+
+        .independance-highlight p:last-child { margin-bottom: 0; }
+
+        .independance-highlight strong {
+            color: var(--bleu-marine);
+            font-weight: 600;
+        }
+
+        /* Encadré chiffré */
+        .stats-banner {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, var(--bleu-marine), var(--bleu-profond));
+            border-radius: 16px;
+            color: white;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--or-subtil);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* ============================================
+           DEUX CARTES : ADHÉRER / DONNER
+        ============================================ */
+        .choix-soutien {
+            padding: 5rem 3rem;
+            background: var(--gris-clair);
+        }
+
+        .choix-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .choix-intro {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .choix-intro h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--bleu-marine);
+        }
+
+        .choix-intro p {
+            font-size: 1.15rem;
+            color: var(--gris-fonce);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cartes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .carte-soutien {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carte-soutien::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--bleu-marine), var(--bleu-ciel));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+
+        .carte-soutien:hover::after { transform: scaleX(1); }
+        .carte-soutien:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+
+        .carte-header {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .carte-icon {
+            font-size: 3rem;
+        }
+
+        .carte-header h3 {
+            font-size: 2rem;
+            color: var(--bleu-marine);
+        }
+
+        .carte-tagline {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--or-subtil);
+            margin-bottom: 2rem;
+        }
+
+        .carte-benefices {
+            margin-bottom: 2rem;
+        }
+
+        .carte-benefices ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .carte-benefices li {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: var(--gris-clair);
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .carte-benefices li:hover {
+            transform: translateX(5px);
+            background: #edf2f7;
+        }
+
+        .check-icon {
+            width: 24px; height: 24px;
+            background: linear-gradient(135deg, var(--bleu-marine), var(--bleu-ciel));
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+            font-weight: 700;
+        }
+
+        .carte-benefices li span {
+            font-size: 1rem;
+            color: var(--gris-fonce);
+            line-height: 1.5;
+        }
+
+        /* Grille montants */
+        .montants-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .montant-option {
+            background: var(--gris-clair);
+            padding: 1rem 1.2rem;
+            border-radius: 10px;
+            border: 2px solid transparent;
+            text-align: center;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .montant-option:hover {
+            border-color: var(--bleu-ciel);
+            background: white;
+        }
+
+        .montant-prix {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--bleu-marine);
+        }
+
+        .montant-label {
+            font-size: 0.9rem;
+            color: var(--gris-fonce);
+            margin-top: 0.3rem;
+        }
+
+        /* ============================================
+           MODALITÉS
+        ============================================ */
+        .modalites {
+            padding: 4rem 3rem;
+            background: white;
+        }
+
+        .modalites-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .modalites h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--bleu-marine);
+            text-align: center;
+        }
+
+        .modalites-content {
+            background: var(--gris-clair);
+            padding: 2.5rem;
+            border-radius: 16px;
+        }
+
+        .modalites-content p {
+            font-size: 1.05rem;
+            color: var(--gris-fonce);
+            margin-bottom: 1.2rem;
+            line-height: 1.7;
+        }
+
+        .paiement-options {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .paiement-item {
+            background: white;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 600;
+            color: var(--bleu-marine);
+        }
+
+        .contact-email {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .contact-email a {
+            color: var(--bleu-ciel);
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        .contact-email a:hover {
+            color: var(--bleu-marine);
+        }
+
+        /* ============================================
+           CONCLUSION
+        ============================================ */
+        .conclusion {
+            padding: 5rem 3rem;
+            background: linear-gradient(135deg, var(--bleu-profond), var(--bleu-marine));
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .conclusion::before {
+            content: '';
+            position: absolute; top: -30%; left: -10%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(91,143,185,0.15) 0%, transparent 70%);
+            border-radius: 50%; pointer-events: none;
+        }
+
+        .conclusion-content { position: relative; z-index: 2; }
+
+        .conclusion h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .conclusion-list {
+            max-width: 500px;
+            margin: 0 auto 2.5rem;
+            text-align: left;
+        }
+
+        .conclusion-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .conclusion-list li {
+            font-size: 1.15rem;
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .conclusion-list li::before {
+            content: '→';
+            color: var(--or-subtil);
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        .conclusion-phrase {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-style: italic;
+            color: var(--or-subtil);
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-actions {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ============================================
+           FOOTER
+        ============================================ */
+        footer {
+            background: var(--bleu-profond);
+            color: rgba(255,255,255,0.7);
+            padding: 2rem 3rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* ============================================
+           RESPONSIVE
+        ============================================ */
+        @media (max-width: 768px) {
+            .header-container { padding: 1rem 1.5rem; }
+            .hamburger { display: flex; }
+
+            nav {
+                position: fixed; top: 76px; left: 0; right: 0;
+                background: white; flex-direction: column; gap: 0;
+                padding: 2rem;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                transform: translateY(-150%); opacity: 0;
+                transition: transform 0.3s ease, opacity 0.3s ease;
+                max-height: calc(100vh - 76px); overflow-y: auto;
+            }
+
+            nav.active { transform: translateY(0); opacity: 1; }
+
+            nav a {
+                padding: 1rem 0;
+                border-bottom: 1px solid var(--gris-moyen);
+                width: 100%; font-size: 1.1rem;
+            }
+
+            nav a::after { display: none; }
+            .header-cta { display: none; }
+
+            .mobile-cta {
+                display: flex; flex-direction: column; gap: 1rem;
+                margin-top: 1.5rem; padding-top: 1.5rem;
+                border-top: 2px solid var(--gris-moyen);
+            }
+
+            .mobile-cta .btn { width: 100%; justify-content: center; }
+
+            .page-hero h1 { font-size: 2.4rem; }
+            .page-hero { padding: 4rem 1.5rem 3rem; }
+
+            .independance-section { padding: 3rem 1.5rem; }
+            .independance-container h2 { font-size: 1.8rem; }
+            .stats-banner { grid-template-columns: 1fr; gap: 1.5rem; }
+
+            .choix-soutien { padding: 3rem 1.5rem; }
+            .choix-intro h2 { font-size: 2rem; }
+            .cartes-grid { grid-template-columns: 1fr; }
+            .carte-soutien { padding: 2rem; }
+            .montants-grid { grid-template-columns: 1fr; }
+
+            .modalites { padding: 3rem 1.5rem; }
+            .modalites-content { padding: 1.5rem; }
+            .paiement-options { flex-direction: column; }
+
+            .conclusion { padding: 4rem 1.5rem; }
+            .conclusion h2 { font-size: 2rem; }
+            .cta-actions { flex-direction: column; }
+            .cta-actions .btn { width: 100%; }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header id="header">
+    <div class="header-container">
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="Les Nationalistes" class="logo-image">
+            <span>Les Nationalistes</span>
+        </a>
+
+        <div class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+
+        <nav id="nav">
+            <a href="index.html">Accueil</a>
+            <a href="notre-vision.html">Notre vision</a>
+            <a href="nos-valeurs.html">Nos valeurs</a>
+            <a href="index.html#dialogue">Débats</a>
+            <a href="index.html#contact">Contact</a>
+
+            <div class="mobile-cta">
+                <a href="#adherer" class="btn btn-primary">Adhérer</a>
+                <a href="#don" class="btn btn-don">Faire un don</a>
+            </div>
+        </nav>
+
+        <div class="header-cta">
+            <a href="#adherer" class="btn btn-primary">Adhérer</a>
+            <a href="#don" class="btn btn-don">Faire un don</a>
+        </div>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="page-hero">
+    <div class="page-hero-content">
+        <div class="page-hero-badge">💙 Association loi 1901</div>
+        <h1>Soutenir une réflexion libre et indépendante</h1>
+        <p>Les Nationalistes est une association 100% indépendante, financée uniquement par les citoyens. Aucune subvention publique, aucune pression institutionnelle.</p>
+    </div>
+</section>
+
+<!-- SECTION INDÉPENDANCE -->
+<section class="independance-section">
+    <div class="independance-container">
+        <h2>Notre modèle : l'indépendance totale</h2>
+        <p>L'association Citoyens Nationalistes Unis (Les Nationalistes.fr) est une association loi 1901 totalement indépendante. Nous ne percevons aucune subvention publique et ne dépendons d'aucun financement institutionnel.</p>
+        <p>Notre fonctionnement repose exclusivement sur les adhésions et les dons de particuliers.</p>
+
+        <div class="independance-highlight">
+            <p><strong>Ce choix est volontaire.</strong></p>
+            <p>Il garantit notre liberté de parole, notre autonomie intellectuelle et notre fidélité à nos engagements. Nous ne devons rien à personne — sauf à nos adhérents et donateurs.</p>
+        </div>
+
+        <div class="stats-banner">
+            <div class="stat-item">
+                <div class="stat-number">0 €</div>
+                <div class="stat-label">de subvention publique</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100 %</div>
+                <div class="stat-label">financé par les citoyens</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">∞</div>
+                <div class="stat-label">liberté de parole</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DEUX CARTES : ADHÉRER / DONNER -->
+<section class="choix-soutien">
+    <div class="choix-container">
+        <div class="choix-intro">
+            <h2>Deux façons de nous soutenir</h2>
+            <p>Que vous souhaitiez participer activement ou soutenir financièrement notre action, chaque contribution renforce notre indépendance.</p>
+        </div>
+
+        <div class="cartes-grid">
+
+            <!-- CARTE ADHÉRER -->
+            <div class="carte-soutien" id="adherer">
+                <div class="carte-header">
+                    <div class="carte-icon">🏛️</div>
+                    <h3>Adhérer à l'association</h3>
+                </div>
+
+                <p class="carte-tagline">Participer à une démarche collective de réflexion et de reconstruction</p>
+
+                <div class="carte-benefices">
+                    <ul>
+                        <li>
+                            <div class="check-icon">✓</div>
+                            <span>Participer aux débats publics structurés et aux consultations thématiques</span>
+                        </li>
+                        <li>
+                            <div class="check-icon">✓</div>
+                            <span>Recevoir nos synthèses, analyses et informations stratégiques en avant-première</span>
+                        </li>
+                        <li>
+                            <div class="check-icon">✓</div>
+                            <span>Contribuer à structurer un réseau de citoyens engagés partout en France</span>
+                        </li>
+                        <li>
+                            <div class="check-icon">✓</div>
+                            <span>Accéder aux événements et conférences réservés aux adhérents</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <p style="font-size: 0.95rem; color: var(--gris-fonce); margin-bottom: 1.5rem;">
+                    Chaque adhérent contribue à faire vivre une réflexion nationale indépendante.
+                </p>
+
+                <h4 style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--bleu-marine);">Montants suggérés</h4>
+
+                <div class="montants-grid">
+                    <div class="montant-option">
+                        <div class="montant-prix">15 €</div>
+                        <div class="montant-label">Adhérent</div>
+                    </div>
+                    <div class="montant-option">
+                        <div class="montant-prix">30 €</div>
+                        <div class="montant-label">Adhérent soutien</div>
+                    </div>
+                    <div class="montant-option">
+                        <div class="montant-prix">50 €</div>
+                        <div class="montant-label">Membre engagé</div>
+                    </div>
+                    <div class="montant-option">
+                        <div class="montant-prix">100 €+</div>
+                        <div class="montant-label">Donateur bâtisseur</div>
+                    </div>
+                </div>
+
+                <p style="font-size: 0.9rem; color: var(--gris-fonce); margin-bottom: 1.5rem; font-style: italic;">
+                    Adhésion à l'association Citoyens Nationalistes Unis – Montant libre à partir de 15 € par an
+                </p>
+
+                <a href="adherer.html" class="btn btn-primary btn-large" style="width: 100%;">Adhérer en ligne →</a>
+            </div>
+
+            <!-- CARTE DON -->
+            <div class="carte-soutien" id="don">
+                <div class="carte-header">
+                    <div class="carte-icon">🎯</div>
+                    <h3>Faire un don</h3>
+                </div>
+
+                <p class="carte-tagline">Garantir notre indépendance financière et notre liberté d'action</p>
+
+                <div class="carte-benefices">
+                    <ul>
+                        <li>
+                            <div class="check-icon">✓</div>
+                            <span>Nous permettre de rester libres de toute pression politique ou institutionnelle</span>
+                        </li>
+                        <li>
+                            <div class="check-icon">✓</div>
+                            <span>Développer nos outils de communication et de diffusion au grand public</span>
+                        </li>
+                        <li>
+                            <div class="check-icon">✓</div>
+                            <span>Organiser des rencontres de qualité et des événements citoyens structurants</span>
+                        </li>
+                        <li>
+                            <div class="check-icon">✓</div>
+                            <span>Produire des travaux sérieux, documentés et indépendants</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <p style="font-size: 0.95rem; color: var(--gris-fonce); margin-bottom: 2rem;">
+                    Notre liberté dépend exclusivement de l'engagement de nos soutiens.
+                </p>
+
+                <div style="background: var(--gris-clair); padding: 1.5rem; border-radius: 12px; margin-bottom: 1.5rem; text-align: center;">
+                    <p style="font-size: 1rem; color: var(--gris-fonce); margin-bottom: 0.8rem;">
+                        <strong style="color: var(--bleu-marine);">Montant libre</strong>
+                    </p>
+                    <p style="font-size: 0.9rem; color: var(--gris-fonce); margin: 0;">
+                        Vous choisissez le montant qui correspond à votre engagement
+                    </p>
+                </div>
+
+                <a href="faire-un-don.html" class="btn btn-don btn-large" style="width: 100%;">Faire un don →</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- MODALITÉS -->
+<section class="modalites">
+    <div class="modalites-container">
+        <h2>Comment adhérer ou faire un don ?</h2>
+
+        <div class="modalites-content">
+            <p style="text-align: center; font-weight: 600; color: var(--bleu-marine); margin-bottom: 1.5rem;">
+                Vous pouvez régler de deux façons :
+            </p>
+
+            <div class="paiement-options">
+                <div class="paiement-item">
+                    💳 Par carte bancaire
+                </div>
+                <div class="paiement-item">
+                    🏦 Par virement
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 2rem; font-size: 1rem;">
+                Le paiement est sécurisé et vos données sont protégées conformément au RGPD.
+            </p>
+
+            <div class="contact-email">
+                <p>Pour toute question, contactez-nous :</p>
+                <p><a href="/cdn-cgi/l/email-protection#85e4e1ede0f6eceaebc5e9e0f6ebe4f1eceaebe4e9ecf6f1e0f6abe3f7"><span class="__cf_email__" data-cfemail="2a4b4e424f594345446a464f59444b5e4345444b4643595e4f59044c58">[email&#160;protected]</span></a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONCLUSION -->
+<section class="conclusion">
+    <div class="conclusion-content">
+        <h2>Un engagement libre et responsable</h2>
+
+        <div class="conclusion-list">
+            <ul>
+                <li>l'indépendance</li>
+                <li>la cohérence</li>
+                <li>le débat structuré</li>
+                <li>la reconstruction nationale</li>
+            </ul>
+        </div>
+
+        <p class="conclusion-phrase">« Nous ne dépendons que de vous. »</p>
+
+        <div class="cta-actions">
+            <a href="adherer.html" class="btn btn-secondary btn-large">Adhérer à l'association</a>
+            <a href="faire-un-don.html" class="btn btn-don btn-large">Faire un don</a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    © 2026 Les Nationalistes.fr<br>
+    Association Citoyens Nationalistes Unis – Loi 1901
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // Header scroll
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('nav');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        nav.classList.toggle('active');
+    });
+
+    document.querySelectorAll('#nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            nav.classList.remove('active');
+        });
+    });

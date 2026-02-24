@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adhérer à l'association – Les Nationalistes.fr</title>
+    <meta name="description" content="Adhérez à l'association Citoyens Nationalistes Unis. Participez activement à la construction d'un projet républicain fondé sur le dialogue.">
+    <link rel="canonical" href="https://www.lesnationalistes.fr/adherer/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bleu-marine: #1a3a52;
+            --bleu-profond: #0d2436;
+            --bleu-ciel: #5b8fb9;
+            --or-subtil: #c5a572;
+            --gris-clair: #f4f6f8;
+            --gris-moyen: #e1e5ea;
+            --gris-fonce: #4a5568;
+            --blanc: #ffffff;
+            --texte: #1f2937;
+            --font-display: 'Spectral', serif;
+            --font-body: 'Source Sans 3', sans-serif;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 30px rgba(0,0,0,0.12);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--texte);
+            line-height: 1.7;
+            background: var(--blanc);
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--bleu-marine);
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* HEADER */
+        header {
+            position: fixed; top: 0; left: 0; right: 0;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.98) 0%, rgba(244,246,248,0.96) 100%);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--gris-moyen);
+            z-index: 1000; transition: var(--transition);
+        }
+
+        header.scrolled {
+            box-shadow: 0 4px 16px rgba(26,58,82,0.12);
+            background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(244,246,248,1) 100%);
+        }
+
+        .header-container {
+            max-width: 1400px; margin: 0 auto;
+            padding: 1.2rem 3rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .logo {
+            display: flex; align-items: center; gap: 1rem;
+            font-family: var(--font-display);
+            font-size: 1.5rem; font-weight: 700;
+            color: var(--bleu-marine);
+            transition: var(--transition); z-index: 1001;
+        }
+
+        .logo:hover { opacity: 0.85; }
+
+        .logo-image {
+            height: 45px; width: auto;
+            object-fit: contain;
+        }
+
+        .hamburger {
+            display: none; flex-direction: column; gap: 5px;
+            cursor: pointer; z-index: 1001; padding: 8px;
+        }
+
+        .hamburger span {
+            width: 25px; height: 3px;
+            background: var(--bleu-marine);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+
+        nav { display: flex; gap: 2.5rem; align-items: center; }
+
+        nav a {
+            font-weight: 500; font-size: 1rem;
+            color: var(--gris-fonce);
+            position: relative; transition: var(--transition);
+        }
+
+        nav a::after {
+            content: ''; position: absolute;
+            bottom: -5px; left: 0;
+            width: 0; height: 2px;
+            background: var(--or-subtil);
+            transition: var(--transition);
+        }
+
+        nav a:hover { color: var(--bleu-marine); }
+        nav a:hover::after { width: 100%; }
+
+        .mobile-cta { display: none; }
+        .header-cta { display: flex; gap: 1rem; }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--bleu-marine), var(--bleu-profond));
+            color: white; box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+        .btn-don { background: var(--vert-don); color: white; }
+        .btn-don:hover { background: var(--vert-hover); transform: translateY(-2px); }
+
+        /* HERO */
+        .page-hero {
+            margin-top: 76px;
+            background: linear-gradient(135deg, var(--bleu-profond) 0%, var(--bleu-marine) 100%);
+            padding: 5rem 3rem 4rem;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute; top: -50%; right: -10%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(91,143,185,0.18) 0%, transparent 70%);
+            border-radius: 50%; pointer-events: none;
+        }
+
+        .page-hero-content { position: relative; z-index: 2; }
+
+        .page-hero-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: rgba(255,255,255,0.12);
+            padding: 0.5rem 1.2rem; border-radius: 50px;
+            font-size: 0.9rem; font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .page-hero h1 {
+            font-size: 3rem; color: white;
+            margin-bottom: 1.2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .page-hero p {
+            font-size: 1.15rem; opacity: 0.9;
+            max-width: 700px; margin: 0 auto 2rem;
+            line-height: 1.7;
+        }
+
+        .btn {
+            padding: 0.9rem 2.2rem; border-radius: 8px;
+            font-weight: 600; font-size: 1rem;
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            transition: var(--transition); cursor: pointer; border: none;
+            font-family: var(--font-body);
+        }
+
+        .btn-large {
+            padding: 1.1rem 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        .btn-secondary { background: var(--or-subtil); color: white; }
+        .btn-secondary:hover { background: #b8960b; transform: translateY(-2px); }
+
+        /* BÉNÉFICES */
+        .benefices {
+            padding: 5rem 3rem;
+            background: var(--gris-clair);
+        }
+
+        .benefices-container { max-width: 1200px; margin: 0 auto; }
+
+        .benefices-intro {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .benefices-intro h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: var(--bleu-marine);
+        }
+
+        .benefices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefice-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefice-card::after {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--bleu-marine), var(--bleu-ciel));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+
+        .benefice-card:hover::after { transform: scaleX(1); }
+        .benefice-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+
+        .benefice-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.2rem;
+            display: block;
+        }
+
+        .benefice-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: var(--bleu-marine);
+        }
+
+        .benefice-card p {
+            font-size: 1rem;
+            color: var(--gris-fonce);
+            line-height: 1.7;
+        }
+
+        /* CE QUE PERMET VOTRE ADHÉSION */
+        .impact {
+            padding: 4rem 3rem;
+            background: white;
+        }
+
+        .impact-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .impact h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--bleu-marine);
+            text-align: center;
+        }
+
+        .impact-list {
+            background: var(--gris-clair);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border-left: 5px solid var(--bleu-ciel);
+        }
+
+        .impact-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .impact-list li {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+            color: var(--gris-fonce);
+        }
+
+        .impact-list li:last-child { margin-bottom: 0; }
+
+        .impact-list li::before {
+            content: '→';
+            color: var(--bleu-marine);
+            font-weight: 700;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .impact-note {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 0.95rem;
+            color: var(--gris-fonce);
+            font-style: italic;
+        }
+
+        /* POURQUOI NOUS AVONS BESOIN DE VOUS */
+        .mission {
+            padding: 4rem 3rem;
+            background: var(--gris-clair);
+        }
+
+        .mission-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            border-top: 5px solid var(--bleu-marine);
+        }
+
+        .mission h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--bleu-marine);
+            text-align: center;
+        }
+
+        .mission-points {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .mission-point {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+            padding: 1.2rem;
+            background: var(--gris-clair);
+            border-radius: 10px;
+        }
+
+        .mission-point-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--bleu-marine), var(--bleu-ciel));
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: white;
+            font-size: 1rem;
+            flex-shrink: 0;
+            font-weight: 700;
+        }
+
+        .mission-point p {
+            font-size: 1.05rem;
+            color: var(--gris-fonce);
+            margin: 0;
+        }
+
+        /* FORMULAIRE */
+        .formulaire {
+            padding: 5rem 3rem;
+            background: white;
+        }
+
+        .formulaire-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .formulaire h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: var(--bleu-marine);
+            text-align: center;
+        }
+
+        .formulaire-intro {
+            text-align: center;
+            font-size: 1.05rem;
+            color: var(--gris-fonce);
+            margin-bottom: 3rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--bleu-marine);
+            font-size: 0.95rem;
+        }
+
+        .form-group label .optional {
+            font-weight: 400;
+            color: var(--gris-fonce);
+            font-size: 0.85rem;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            border: 2px solid var(--gris-moyen);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: var(--font-body);
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--bleu-ciel);
+            box-shadow: 0 0 0 3px rgba(91, 143, 185, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        /* MONTANTS */
+        .montants-section {
+            margin: 2.5rem 0;
+        }
+
+        .montants-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            color: var(--bleu-marine);
+        }
+
+        .montants-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .montant-option {
+            position: relative;
+        }
+
+        .montant-option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .montant-label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem 1rem;
+            background: var(--gris-clair);
+            border: 2px solid transparent;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .montant-option input[type="radio"]:checked + .montant-label {
+            background: white;
+            border-color: var(--bleu-marine);
+            box-shadow: 0 0 0 3px rgba(26, 58, 82, 0.1);
+        }
+
+        .montant-label:hover {
+            border-color: var(--bleu-ciel);
+            background: white;
+        }
+
+        .montant-prix {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--bleu-marine);
+            margin-bottom: 0.3rem;
+        }
+
+        .montant-desc {
+            font-size: 0.9rem;
+            color: var(--gris-fonce);
+        }
+
+        .montant-libre {
+            margin-top: 1rem;
+        }
+
+        .montant-libre-input {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .montant-libre-input input {
+            flex: 1;
+        }
+
+        .montant-libre-input span {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--bleu-marine);
+        }
+
+        /* CHECKBOX */
+        .checkbox-group {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: var(--gris-clair);
+            border-radius: 10px;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+            cursor: pointer;
+            font-size: 0.95rem;
+            color: var(--gris-fonce);
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .checkbox-group a {
+            color: var(--bleu-ciel);
+            text-decoration: underline;
+        }
+
+        .checkbox-group a:hover {
+            color: var(--bleu-marine);
+        }
+
+        /* PAIEMENT */
+        .paiement-section {
+            margin-top: 2.5rem;
+            padding: 2rem;
+            background: var(--gris-clair);
+            border-radius: 12px;
+        }
+
+        .paiement-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--bleu-marine);
+            text-align: center;
+        }
+
+        .paiement-secure {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--gris-fonce);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .paiement-secure::before {
+            content: '🔒';
+            font-size: 1.2rem;
+        }
+
+        .paiement-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .btn-paiement {
+            width: 100%;
+            padding: 1.2rem;
+            font-size: 1.05rem;
+            font-weight: 600;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+
+        .btn-paiement:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .btn-paiement:not(:disabled):hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-stripe {
+            background: #635BFF;
+            color: white;
+        }
+
+        .btn-paypal {
+            background: #0070BA;
+            color: white;
+        }
+
+        /* CTA FINAL */
+        .cta-final {
+            padding: 4rem 3rem;
+            background: linear-gradient(135deg, var(--bleu-profond), var(--bleu-marine));
+            color: white;
+            text-align: center;
+        }
+
+        .cta-final h2 {
+            font-size: 2.2rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .cta-final p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--bleu-profond);
+            color: rgba(255,255,255,0.7);
+            padding: 2rem 3rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .header-container { padding: 1rem 1.5rem; }
+            .hamburger { display: flex; }
+
+            nav {
+                position: fixed; top: 76px; left: 0; right: 0;
+                background: white; flex-direction: column; gap: 0;
+                padding: 2rem;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                transform: translateY(-150%); opacity: 0;
+                transition: transform 0.3s ease, opacity 0.3s ease;
+                max-height: calc(100vh - 76px); overflow-y: auto;
+            }
+
+            nav.active { transform: translateY(0); opacity: 1; }
+
+            nav a {
+                padding: 1rem 0;
+                border-bottom: 1px solid var(--gris-moyen);
+                width: 100%; font-size: 1.1rem;
+            }
+
+            nav a::after { display: none; }
+            .header-cta { display: none; }
+
+            .mobile-cta {
+                display: flex; flex-direction: column; gap: 1rem;
+                margin-top: 1.5rem; padding-top: 1.5rem;
+                border-top: 2px solid var(--gris-moyen);
+            }
+
+            .mobile-cta .btn { width: 100%; justify-content: center; }
+
+            .page-hero h1 { font-size: 2rem; }
+            .page-hero { padding: 4rem 1.5rem 3rem; }
+            .benefices { padding: 3rem 1.5rem; }
+            .benefices-grid { grid-template-columns: 1fr; }
+            .impact, .mission, .formulaire { padding: 3rem 1.5rem; }
+            .mission-container { padding: 2rem; }
+            .form-row { grid-template-columns: 1fr; }
+            .montants-grid { grid-template-columns: 1fr; }
+            .cta-final { padding: 3rem 1.5rem; }
+            .cta-final h2 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header id="header">
+    <div class="header-container">
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="Les Nationalistes" class="logo-image">
+            <span>Les Nationalistes</span>
+        </a>
+
+        <div class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+
+        <nav id="nav">
+            <a href="index.html">Accueil</a>
+            <a href="notre-vision.html">Notre vision</a>
+            <a href="nos-valeurs.html">Nos valeurs</a>
+            <a href="index.html#dialogue">Débats</a>
+            <a href="index.html#contact">Contact</a>
+
+            <div class="mobile-cta">
+                <a href="nous-soutenir.html" class="btn btn-primary">Adhérer</a>
+                <a href="nous-soutenir.html#don" class="btn btn-don">Don</a>
+            </div>
+        </nav>
+
+        <div class="header-cta">
+            <a href="nous-soutenir.html" class="btn btn-primary">Adhérer</a>
+            <a href="nous-soutenir.html#don" class="btn btn-don">Don</a>
+        </div>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="page-hero">
+    <div class="page-hero-content">
+        <div class="page-hero-badge">🇫🇷 Rejoignez le mouvement</div>
+        <h1>Rejoignez un mouvement citoyen qui place le dialogue au cœur de l'action</h1>
+        <p>Adhérer à l'association Citoyens Nationalistes Unis, c'est participer activement à la construction d'un projet républicain fondé sur le dialogue.</p>
+        <a href="#formulaire" class="btn btn-secondary btn-large">Adhérer maintenant →</a>
+    </div>
+</section>
+
+<!-- BÉNÉFICES -->
+<section class="benefices">
+    <div class="benefices-container">
+        <div class="benefices-intro">
+            <h2>Pourquoi adhérer ?</h2>
+        </div>
+
+        <div class="benefices-grid">
+            <div class="benefice-card">
+                <span class="benefice-icon">💬</span>
+                <h3>Participer aux débats et consultations</h3>
+                <p>Accès prioritaire aux discussions en ligne, forums citoyens et consultations thématiques sur les orientations du mouvement.</p>
+            </div>
+
+            <div class="benefice-card">
+                <span class="benefice-icon">✍️</span>
+                <h3>Contribuer aux propositions</h3>
+                <p>Chaque adhérent peut proposer, débattre et voter sur certaines orientations du mouvement.</p>
+            </div>
+
+            <div class="benefice-card">
+                <span class="benefice-icon">📰</span>
+                <h3>Recevoir les informations stratégiques</h3>
+                <p>Newsletter dédiée, briefings, analyses et calendrier interne en avant-première.</p>
+            </div>
+
+            <div class="benefice-card">
+                <span class="benefice-icon">🏛️</span>
+                <h3>Construire une force citoyenne indépendante</h3>
+                <p>Pas de parti traditionnel, pas de pression : liberté totale via le format association loi 1901.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CE QUE PERMET VOTRE ADHÉSION -->
+<section class="impact">
+    <div class="impact-container">
+        <h2>Ce que permet votre adhésion</h2>
+
+        <div class="impact-list">
+            <ul>
+                <li>Soutenir une association indépendante</li>
+                <li>Financer les actions de terrain et événements en ligne</li>
+                <li>Aider à développer un espace de dialogue national</li>
+            </ul>
+        </div>
+
+        <div class="impact-note">
+            Adhésion à l'association Citoyens Nationalistes Unis, loi 1901
+        </div>
+    </div>
+</section>
+
+<!-- POURQUOI NOUS AVONS BESOIN DE VOUS -->
+<section class="mission">
+    <div class="mission-container">
+        <h2>Pourquoi nous avons besoin de vous</h2>
+
+        <div class="mission-points">
+            <div class="mission-point">
+                <div class="mission-point-icon">✓</div>
+                <p><strong>Notre mouvement est indépendant</strong> — Aucune subvention publique, aucune pression institutionnelle.</p>
+            </div>
+
+            <div class="mission-point">
+                <div class="mission-point-icon">✓</div>
+                <p><strong>Aucun financement public</strong> — Nous dépendons exclusivement de nos adhérents et donateurs.</p>
+            </div>
+
+            <div class="mission-point">
+                <div class="mission-point-icon">✓</div>
+                <p><strong>Chaque participation renforce notre capacité d'action</strong> — Organiser des débats, produire des analyses, structurer un réseau national.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FORMULAIRE -->
+<section class="formulaire" id="formulaire">
+    <div class="formulaire-container">
+        <h2>Formulaire d'adhésion</h2>
+        <p class="formulaire-intro">Remplissez le formulaire ci-dessous pour devenir adhérent de l'association Citoyens Nationalistes Unis.</p>
+
+        <form id="adhesionForm">
+            <!-- NOM PRÉNOM -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="prenom">Prénom *</label>
+                    <input type="text" id="prenom" name="prenom" required>
+                </div>
+                <div class="form-group">
+                    <label for="nom">Nom *</label>
+                    <input type="text" id="nom" name="nom" required>
+                </div>
+            </div>
+
+            <!-- EMAIL -->
+            <div class="form-group">
+                <label for="email">Adresse email *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <!-- TÉLÉPHONE -->
+            <div class="form-group">
+                <label for="telephone">Téléphone <span class="optional">(facultatif)</span></label>
+                <input type="tel" id="telephone" name="telephone" placeholder="06 12 34 56 78">
+            </div>
+
+            <!-- CODE POSTAL -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="codepostal">Code postal *</label>
+                    <input type="text" id="codepostal" name="codepostal" pattern="[0-9]{5}" required placeholder="75001">
+                </div>
+                <div class="form-group">
+                    <label for="datenaissance">Date de naissance <span class="optional">(facultatif)</span></label>
+                    <input type="date" id="datenaissance" name="datenaissance">
+                </div>
+            </div>
+
+            <!-- MONTANTS -->
+            <div class="montants-section">
+                <h3>Montant de la cotisation *</h3>
+                
+                <div class="montants-grid">
+                    <div class="montant-option">
+                        <input type="radio" id="montant15" name="montant" value="15" checked>
+                        <label for="montant15" class="montant-label">
+                            <div class="montant-prix">15 €</div>
+                            <div class="montant-desc">Adhérent</div>
+                        </label>
+                    </div>
+
+                    <div class="montant-option">
+                        <input type="radio" id="montant50" name="montant" value="50">
+                        <label for="montant50" class="montant-label">
+                            <div class="montant-prix">50 €</div>
+                            <div class="montant-desc">Soutien</div>
+                        </label>
+                    </div>
+
+                    <div class="montant-option">
+                        <input type="radio" id="montantLibre" name="montant" value="libre">
+                        <label for="montantLibre" class="montant-label">
+                            <div class="montant-prix">Libre</div>
+                            <div class="montant-desc">Montant personnalisé</div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="montant-libre" id="montantLibreInput" style="display: none;">
+                    <div class="form-group">
+                        <label for="montantPerso">Montant personnalisé</label>
+                        <div class="montant-libre-input">
+                            <input type="number" id="montantPerso" name="montantPerso" min="15" step="1" placeholder="50">
+                            <span>€</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CHECKBOX RGPD -->
+            <div class="checkbox-group">
+                <label>
+                    <input type="checkbox" id="rgpd" name="rgpd" required>
+                    <span>J'accepte les <a href="mentions-legales.html" target="_blank">statuts de l'association</a> et la <a href="mentions-legales.html" target="_blank">politique de confidentialité</a> *</span>
+                </label>
+            </div>
+
+            <!-- PAIEMENT -->
+            <div class="paiement-section">
+                <h3>Paiement sécurisé</h3>
+                <p class="paiement-secure">Vos données sont protégées et cryptées</p>
+
+                <div class="paiement-buttons">
+                    <button type="button" class="btn-paiement btn-stripe" id="btnStripe" disabled>
+                        💳 Payer par carte bancaire (Stripe)
+                    </button>
+
+                    <button type="button" class="btn-paiement btn-paypal" id="btnPaypal" disabled>
+                        💰 Payer via PayPal
+                    </button>
+                </div>
+
+                <p style="text-align: center; margin-top: 1.5rem; font-size: 0.85rem; color: var(--gris-fonce);">
+                    En validant votre adhésion, vous serez redirigé vers la plateforme de paiement sécurisé.
+                </p>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+    <h2>Rejoignez-nous et contribuez à un mouvement citoyen moderne</h2>
+    <p>Ensemble, construisons une France forte, juste et souveraine.</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    © 2026 Les Nationalistes.fr<br>
+    Association Citoyens Nationalistes Unis – Loi 1901
+</footer>
+
+<script>
+    // Header scroll
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('nav');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        nav.classList.toggle('active');
+    });
+
+    document.querySelectorAll('#nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            nav.classList.remove('active');
+        });
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !nav.contains(e.target)) {
+            hamburger.classList.remove('active');
+            nav.classList.remove('active');
+        }
+    });
+
+    // Montant libre toggle
+    const montantRadios = document.querySelectorAll('input[name="montant"]');
+    const montantLibreInput = document.getElementById('montantLibreInput');
+
+    montantRadios.forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            if (e.target.value === 'libre') {
+                montantLibreInput.style.display = 'block';
+            } else {
+                montantLibreInput.style.display = 'none';
+            }
+            checkFormValidity();
+        });
+    });
+
+    // Enable/disable payment buttons based on checkbox
+    const rgpdCheckbox = document.getElementById('rgpd');
+    const btnStripe = document.getElementById('btnStripe');
+    const btnPaypal = document.getElementById('btnPaypal');
+
+    function checkFormValidity() {
+        const form = document.getElementById('adhesionForm');
+        const isValid = form.checkValidity() && rgpdCheckbox.checked;
+        
+        btnStripe.disabled = !isValid;
+        btnPaypal.disabled = !isValid;
+    }
+
+    rgpdCheckbox.addEventListener('change', checkFormValidity);
+
+    // Check on all input changes
+    const allInputs = document.querySelectorAll('#adhesionForm input, #adhesionForm select');
+    allInputs.forEach(input => {
+        input.addEventListener('input', checkFormValidity);
+        input.addEventListener('change', checkFormValidity);
+    });
+
+    // Payment buttons (demo mode)
+    btnStripe.addEventListener('click', () => {
+        const montant = getMontant();
+        alert(`🔒 MODE DÉMO\n\nPaiement Stripe de ${montant}€\n\nEn production, vous seriez redirigé vers Stripe pour finaliser votre paiement sécurisé.\n\nPour activer les vrais paiements, vous devrez créer un compte Stripe et intégrer vos clés API.`);
+    });
+
+    btnPaypal.addEventListener('click', () => {
+        const montant = getMontant();
+        alert(`🔒 MODE DÉMO\n\nPaiement PayPal de ${montant}€\n\nEn production, vous seriez redirigé vers PayPal pour finaliser votre paiement sécurisé.\n\nPour activer les vrais paiements, vous devrez créer un compte PayPal Business et intégrer vos clés API.`);
+    });
+
+    function getMontant() {
+        const selectedMontant = document.querySelector('input[name="montant"]:checked').value;
+        if (selectedMontant === 'libre') {
+            return document.getElementById('montantPerso').value || '0';
+        }
+        return selectedMontant;
+    }
+</script>
+
+</body>
+</html>
