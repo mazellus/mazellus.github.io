@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos valeurs – Les Nationalistes | Association Patriotique Républicaine</title>
+    <meta name="description" content="Les 7 valeurs fondamentales de l'association Les Nationalistes : Souveraineté, Autorité, Unité nationale, Transmission, Responsabilité, Fierté, Indépendance stratégique.">
+    <link rel="canonical" href="https://www.lesnationalistes.fr/nos-valeurs/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://www.lesnationalistes.fr/nos-valeurs/#webpage",
+      "url": "https://www.lesnationalistes.fr/nos-valeurs/",
+      "name": "Nos valeurs – Les Nationalistes",
+      "description": "Les 7 valeurs fondamentales qui guident l'action de l'association Les Nationalistes.",
+      "isPartOf": { "@id": "https://www.lesnationalistes.fr/#website" },
+      "inLanguage": "fr-FR",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.lesnationalistes.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Nos valeurs", "item": "https://www.lesnationalistes.fr/nos-valeurs/" }
+        ]
+      }
+    }
+    </script>
+
+    <style>
+        :root {
+            --bleu-marine: #1a3a52;
+            --bleu-profond: #0d2436;
+            --bleu-ciel: #5b8fb9;
+            --bleu-clair: #8eb8d6;
+            --or-subtil: #c5a572;
+            --or-hover: #b8960b;
+            --gris-clair: #f4f6f8;
+            --gris-moyen: #e1e5ea;
+            --gris-fonce: #4a5568;
+            --blanc: #ffffff;
+            --texte: #1f2937;
+            --font-display: 'Spectral', serif;
+            --font-body: 'Source Sans 3', sans-serif;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 30px rgba(0,0,0,0.12);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--texte);
+            line-height: 1.7;
+            background: var(--blanc);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--bleu-marine);
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* ============================================
+           HEADER
+        ============================================ */
+        header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.98) 0%, rgba(244,246,248,0.96) 100%);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--gris-moyen);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            box-shadow: 0 4px 16px rgba(26,58,82,0.12);
+            background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(244,246,248,1) 100%);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.2rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--bleu-marine);
+            transition: var(--transition);
+            z-index: 1001;
+        }
+
+        .logo:hover { opacity: 0.85; }
+
+        .logo-icon {
+            width: 42px; height: 42px;
+            background: linear-gradient(135deg, var(--bleu-marine), var(--bleu-ciel));
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-weight: 700; font-size: 1.3rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .logo-image {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 8px;
+        }
+
+        .hamburger span {
+            width: 25px; height: 3px;
+            background: var(--bleu-marine);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+
+        nav { display: flex; gap: 2.5rem; align-items: center; }
+
+        nav a {
+            font-weight: 500; font-size: 1rem;
+            color: var(--gris-fonce);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px; left: 0;
+            width: 0; height: 2px;
+            background: var(--or-subtil);
+            transition: var(--transition);
+        }
+
+        nav a:hover { color: var(--bleu-marine); }
+        nav a:hover::after { width: 100%; }
+        nav a.active { color: var(--bleu-marine); font-weight: 700; }
+        nav a.active::after { width: 100%; }
+
+        .mobile-cta { display: none; }
+        .header-cta { display: flex; gap: 1rem; }
+
+        .btn {
+            padding: 0.75rem 1.8rem;
+            border-radius: 8px;
+            font-weight: 600; font-size: 0.95rem;
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            transition: var(--transition);
+            cursor: pointer; border: none;
+            font-family: var(--font-body);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--bleu-marine), var(--bleu-profond));
+            color: white; box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+        .btn-secondary {
+            background: var(--or-subtil);
+            color: white;
+            border: 2px solid var(--or-subtil);
+        }
+
+        .btn-secondary:hover { background: var(--or-hover); border-color: var(--or-hover); }
+
+        .btn-don { background: #2d7a4f; color: white; border: 2px solid #2d7a4f; }
+        .btn-don:hover { background: #246340; border-color: #246340; }
+
+        /* ============================================
+           HERO PAGE
+        ============================================ */
+        .page-hero {
+            margin-top: 76px;
+            background: linear-gradient(135deg, var(--bleu-profond) 0%, var(--bleu-marine) 100%);
+            padding: 5rem 3rem;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%; right: -10%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(91,143,185,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .page-hero-content { position: relative; z-index: 2; }
+
+        .page-hero-badge {
+            display: inline-flex;
+            align-items: center; gap: 0.5rem;
+            background: rgba(255,255,255,0.12);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem; font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .page-hero h1 { font-size: 3.5rem; margin-bottom: 1rem; color: white; }
+
+        .page-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* ============================================
+           NAVIGATION RAPIDE DES VALEURS
+        ============================================ */
+        .values-nav {
+            background: var(--bleu-marine);
+            padding: 1rem 3rem;
+            position: sticky;
+            top: 76px;
+            z-index: 100;
+            overflow-x: auto;
+        }
+
+        .values-nav-list {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .values-nav-list a {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.88rem; font-weight: 600;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .values-nav-list a:hover {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        /* ============================================
+           INTRO CITATION
+        ============================================ */
+        .intro {
+            padding: 4.5rem 3rem;
+            background: white;
+        }
+
+        .intro-container {
+            max-width: 860px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .intro-quote {
+            font-family: var(--font-display);
+            font-size: 1.45rem;
+            font-style: italic;
+            color: var(--bleu-marine);
+            line-height: 1.7;
+            padding: 2rem 3rem;
+            border-left: 4px solid var(--or-subtil);
+            border-right: 4px solid var(--or-subtil);
+            background: var(--gris-clair);
+            border-radius: 4px;
+            margin-bottom: 1.8rem;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            color: var(--gris-fonce);
+            line-height: 1.8;
+        }
+
+        /* ============================================
+           VALEURS DÉTAILLÉES
+        ============================================ */
+        .values-detailed {
+            padding: 4rem 3rem 6rem;
+            background: var(--gris-clair);
+        }
+
+        .values-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .value-section {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow-md);
+            display: grid;
+            grid-template-columns: 110px 1fr;
+            gap: 3rem;
+            align-items: start;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-section::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--bleu-marine), var(--bleu-ciel));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+
+        .value-section:hover::after { transform: scaleX(1); }
+        .value-section:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+
+        .value-number-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .value-number {
+            width: 64px; height: 64px;
+            background: linear-gradient(135deg, var(--bleu-marine), var(--bleu-ciel));
+            border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            color: white;
+            font-family: var(--font-display);
+            font-size: 1.8rem; font-weight: 700;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .value-icon-emoji { font-size: 2.2rem; }
+
+        .value-content h2 {
+            font-size: 2rem;
+            margin-bottom: 0.3rem;
+            color: var(--bleu-marine);
+        }
+
+        .value-tagline {
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--or-subtil);
+            font-family: var(--font-display);
+            margin-bottom: 1.2rem;
+            display: block;
+        }
+
+        .value-body-text {
+            font-size: 1.1rem;
+            color: var(--gris-fonce);
+            line-height: 1.8;
+            margin-bottom: 1.8rem;
+            padding-bottom: 1.8rem;
+            border-bottom: 1px solid var(--gris-moyen);
+        }
+
+        .value-points {
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+        }
+
+        .value-point {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+            padding: 1rem 1.2rem;
+            background: var(--gris-clair);
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .value-point:hover { transform: translateX(6px); background: #edf2f7; }
+
+        .value-point-icon {
+            width: 28px; height: 28px;
+            background: linear-gradient(135deg, var(--bleu-marine), var(--bleu-ciel));
+            border-radius: 6px;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 0.85rem; flex-shrink: 0;
+            font-weight: 700; font-family: var(--font-display);
+        }
+
+        .value-point-text strong {
+            display: block;
+            color: var(--bleu-marine);
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .value-point-text p {
+            font-size: 0.98rem;
+            color: var(--gris-fonce);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* ============================================
+           CTA FINAL
+        ============================================ */
+        .cta {
+            padding: 5rem 3rem;
+            background: linear-gradient(135deg, var(--bleu-profond), var(--bleu-marine));
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            bottom: -30%; left: -10%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(91,143,185,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .cta-content { position: relative; z-index: 2; }
+
+        .cta h2 { font-size: 2.5rem; margin-bottom: 1rem; color: white; }
+
+        .cta p {
+            font-size: 1.15rem; opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+        }
+
+        .cta-actions { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; }
+
+        /* ============================================
+           FOOTER
+        ============================================ */
+        footer {
+            background: var(--bleu-profond);
+            color: rgba(255,255,255,0.7);
+            padding: 2rem 3rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* ============================================
+           ANIMATIONS
+        ============================================ */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* ============================================
+           RESPONSIVE
+        ============================================ */
+        @media (max-width: 768px) {
+            .header-container { padding: 1rem 1.5rem; }
+            .hamburger { display: flex; }
+
+            nav {
+                position: fixed;
+                top: 76px; left: 0; right: 0;
+                background: white;
+                flex-direction: column; gap: 0;
+                padding: 2rem;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                transform: translateY(-150%); opacity: 0;
+                transition: transform 0.3s ease, opacity 0.3s ease;
+                max-height: calc(100vh - 76px);
+                overflow-y: auto;
+            }
+
+            nav.active { transform: translateY(0); opacity: 1; }
+
+            nav a {
+                padding: 1rem 0;
+                border-bottom: 1px solid var(--gris-moyen);
+                width: 100%; font-size: 1.1rem;
+            }
+
+            nav a::after { display: none; }
+            .header-cta { display: none; }
+
+            .mobile-cta {
+                display: flex; flex-direction: column; gap: 1rem;
+                margin-top: 1.5rem; padding-top: 1.5rem;
+                border-top: 2px solid var(--gris-moyen);
+            }
+
+            .mobile-cta .btn { width: 100%; justify-content: center; }
+
+            .page-hero h1 { font-size: 2.4rem; }
+            .values-nav { top: 68px; padding: 0.8rem 1rem; }
+            .intro-quote { padding: 1.5rem; font-size: 1.2rem; }
+
+            .value-section {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 2rem;
+            }
+
+            .value-number-block { flex-direction: row; justify-content: flex-start; }
+            .cta h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ============================================
+     HEADER
+============================================ -->
+<header id="header">
+    <div class="header-container">
+        <a href="les-nationalistes.html" class="logo">
+            <img src="logo.png" alt="Les Nationalistes" class="logo-image">
+            <span>Les Nationalistes</span>
+        </a>
+
+        <div class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+
+        <nav id="nav">
+            <a href="les-nationalistes.html">Accueil</a>
+            <a href="notre-vision.html">Notre vision</a>
+            <a href="nos-valeurs.html" class="active">Nos valeurs</a>
+            <a href="les-nationalistes.html#dialogue">Débats</a>
+            <a href="les-nationalistes.html#contact">Contact</a>
+
+            <div class="mobile-cta">
+                <a href="nous-soutenir.html" class="btn btn-primary">Adhérer</a>
+                <a href="nous-soutenir.html#don" class="btn btn-don">Don</a>
+            </div>
+        </nav>
+
+        <div class="header-cta">
+            <a href="nous-soutenir.html" class="btn btn-primary">Adhérer</a>
+            <a href="nous-soutenir.html#don" class="btn btn-don">Don</a>
+        </div>
+    </div>
+</header>
+
+<!-- ============================================
+     HERO
+============================================ -->
+<section class="page-hero">
+    <div class="page-hero-content">
+        <div class="page-hero-badge">🏛️ Ce en quoi nous croyons</div>
+        <h1>Nos valeurs fondamentales</h1>
+        <p>Sept piliers qui définissent notre engagement pour la France et guident chacune de nos actions.</p>
+    </div>
+</section>
+
+<!-- ============================================
+     NAVIGATION RAPIDE
+============================================ -->
+<nav class="values-nav" aria-label="Navigation des valeurs">
+    <div class="values-nav-list">
+        <a href="#souverainete">1. Souveraineté</a>
+        <a href="#autorite">2. Autorité</a>
+        <a href="#unite">3. Unité nationale</a>
+        <a href="#transmission">4. Transmission</a>
+        <a href="#responsabilite">5. Responsabilité</a>
+        <a href="#fierte">6. Fierté</a>
+        <a href="#independance">7. Indépendance stratégique</a>
+    </div>
+</nav>
+
+<!-- ============================================
+     INTRO
+============================================ -->
+<section class="intro">
+    <div class="intro-container">
+        <div class="intro-quote">
+            « Ces valeurs ne sont pas des slogans. Elles sont le socle à partir duquel nous agissons, débattons et construisons un projet cohérent pour la France. »
+        </div>
+        <p>Chacun de ces sept piliers répond à un défi majeur de notre époque. Ensemble, ils forment une vision claire, exigeante et assumée de ce que doit être une nation forte et libre.</p>
+    </div>
+</section>
+
+<!-- ============================================
+     VALEURS
+============================================ -->
+<section class="values-detailed">
+    <div class="values-container">
+
+        <!-- 1. SOUVERAINETÉ -->
+        <div class="value-section fade-in" id="souverainete">
+            <div class="value-number-block">
+                <div class="value-number">1</div>
+                <div class="value-icon-emoji">🏛️</div>
+            </div>
+            <div class="value-content">
+                <h2>La Souveraineté</h2>
+                <span class="value-tagline">Le peuple maître de son destin</span>
+                <p class="value-body-text">Le peuple français doit rester maître de ses lois, de ses frontières et de son destin. Aucune autorité supranationale ne peut primer sur la volonté démocratique exprimée par la nation.</p>
+                <div class="value-points">
+                    <div class="value-point">
+                        <div class="value-point-icon">→</div>
+                        <div class="value-point-text">
+                            <strong>Primauté de la volonté nationale</strong>
+                            <p>Les lois qui gouvernent les Français sont décidées par les Français. Aucun traité ne peut s'y substituer sans mandat démocratique explicite.</p>
+                        </div>
+                    </div>
+                    <div class="value-point">
+                        <div class="value-point-icon">→</div>
+                        <div class="value-point-text">
+                            <strong>Maîtrise des frontières</strong>
+                            <p>Contrôler ses frontières, c'est exercer la souveraineté la plus concrète. C'est une condition de la sécurité et de la cohésion nationale.</p>
+                        </div>
+                    </div>
+                    <div class="value-point">
+                        <div class="value-point-icon">→</div>
+                        <div class="value-point-text">
+                            <strong>Reconquête des compétences abandonnées</strong>
+                            <p>Nous exigeons un bilan honnête des délégations de souveraineté et la renégociation de celles qui portent atteinte à l'intérêt national.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. AUTORITÉ -->
+        <div class="value-section fade-in" id="autorite">
+            <div class="value-number-block">
+                <div class="value-number">2</div>
+                <div class="value-icon-emoji">⚖️</div>
+            </div>
+            <div class="value-content">
+                <h2>L'Autorité</h2>
+                <span class="value-tagline">Sans ordre, pas de liberté</span>
+                <p class="value-body-text">Sans autorité, il n'y a ni ordre, ni justice, ni liberté. L'État doit garantir la sécurité, appliquer la loi et faire respecter les règles communes. La loi votée démocratiquement doit être appliquée partout et pour tous.</p>
+                <div class="value-points">
+                    <div class="value-point">
+                        <div class="value-point-icon">→</div>
+                        <div class="value-point-text">
+                            <strong>La loi s'applique partout et pour tous</strong>
+                            <p>Il ne peut exister de zones de non-droit ni de traitement différencié selon l'origine ou le statut. L'égalité devant la loi est absolue.</p>
+                        </div>
+                    </div>
+                    <div class="value-point">
+                        <div class="value-point-icon">→</div>
+                        <div class="value-point-text">
+                            <strong>Un État garant de la sécurité</strong>
+                            <p>La première mission de l'État est de protéger les citoyens. Cela exige des moyens humains, juridiques et institutionnels à la hauteur des enjeux.</p>
+                        </div>
+                    </div>
+                    <div class="value-point">
+                        <div class="value-point-icon">→</div>
+                        <div class="value-point-text">
+                            <strong>Restaurer le respect de l'autorité légitime</strong>
+                            <p>Revaloriser les institutions et les forces de l'ordre, pour que l'autorité soit à nouveau synonyme de justice et non d'arbitraire.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. UNITÉ NATIONALE -->
+        <div class="value-section fade-in" id="unite">
+            <div class="value-number-block">
+                <div class="value-number">3</div>
+                <div class="value-icon-emoji">🇫🇷</div>
+            </div>
+            <div class="value-content">
+                <h2>L'Unité nationale</h2>
+                <span class="value-tagline">La France, une et indivisible</span>
+                <p class="value-body-text">La France est une et indivisible. Notre Nation est une communauté historique et politique qui suppose des références communes et une assimilation exigeante comme fondement de la cohésion nationale.</p>
+                <div class="value-points">
+                    <div class="value-point">
+                        <div class="value-point-icon">→</div>
+                        <div class="value-point-text">
+                            <strong>Des références communes assumées</strong>
+                            <p>Vivre en France, c'est partager une histoire, des valeurs et des symboles communs. Ce socle n'est pas négociable, il est la condition du vivre-ensemble.</p>
+                        </div>
+                    </div>
+                    <div class="value-point">
+                        <div class="value-point-icon">→</div>
+                        <div class="value-point-text">
+                            <strong>L'assimilation plutôt que le communautarisme</strong>
+                            <p>Nous défendons une France où chacun peut s'intégrer pleinement en adoptant la langue, les valeurs et les lois de la République.</p>
+                        </div>
+                    </div>
+                    <div class="value-point">
+                        <div class="value-point-icon">→</div>
+                        <div class="value-point-text">
+                            <strong>Refus du séparatisme sous toutes ses formes</strong>
+                            <p>Qu'il soit territorial, religieux ou communautaire, le séparatisme menace la cohésion nationale. Nous y opposons une réponse ferme et républicaine.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. TRANSMISSION -->
+        <div class="value-section fade-in" id="transmission">
+            <div class="value-number-block">
+                <div class="value-number">4</div>
+                <div class="value-icon-emoji">📚</div>
+            </div>
+            <div class="value-content">
+                <h2>La Transmission</h2>
+                <span class="value-tagline">Une nation se construit par la transmission</span>
+                <p class="value-body-text">La continuité culturelle et historique est une richesse à préserver et à transmettre. École des fondamentaux, langue française, histoire nationale, culture classique : voilà les piliers d'un avenir commun.</p>
+                <div class="value-points">
+                    <div class="value-point">
+                        <div class="value-point-icon">→</div>
+                        <div class="value-point-text">
+                            <strong>Refonder l'école sur les fondamentaux</strong>
+                            <p>Lire, écrire, compter, raisonner : l'école doit recentrer son ambition sur la transmission rigoureuse des savoirs, condition de l'égalité des chances réelle.</p>
+                        </div>
+                    </div>
+                    <div class="value-point">
+                        <div class="value-point-icon">→</div>
+                        <div class="value-point-text">
+                            <strong>La langue française, bien commun</strong>
+                            <p>La langue française est le premier lien entre les Français. La défendre contre l'appauvrissement et l'invasion de l'anglais, c'est défendre notre identité collective.</p>
+                        </div>
+                    </div>
+                    <div class="value-point">
+                        <div class="value-point-icon">→</div>
+                        <div class="value-point-text">
+                            <strong>Enseigner l'histoire nationale sans complexe</strong>
+                            <p>Notre histoire, dans toute sa richesse et sa complexité, doit être enseignée avec fierté et lucidité — ni mythifiée, ni amputée par une vision culpabilisatrice.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. RESPONSABILITÉ -->
+        <div class="value-section fade-in" id="responsabilite">
+            <div class="value-number-block">
+                <div class="value-number">5</div>
+                <div class="value-icon-emoji">🤝</div>
+            </div>
+            <div class="value-content">
+                <h2>La Responsabilité</h2>
+                <span class="value-tagline">La solidarité fondée sur le mérite et l'effort</span>
+                <p class="value-body-text">La solidarité nationale doit aller de pair avec l'effort et le mérite. Cela implique le respect des règles et la contribution à l'effort collectif. Nous protégeons ceux qui contribuent et refusons l'encouragement à la dépendance.</p>
+                <div class="value-points">
+                    <div class="value-point">
+                        <div class="value-point-icon">→</div>
+                        <div class="value-point-text">
+                            <strong>Valoriser l'effort et le mérite</strong>
+                            <p>Toute société saine reconnaît et récompense ceux qui travaillent et contribuent à la prospérité commune. Le mérite doit redevenir une valeur centrale.</p>
+                        </div>
+                    </div>
+                    <div class="value-point">
+                        <div class="value-point-icon">→</div>
+                        <div class="value-point-text">
+                            <strong>Protéger ceux qui contribuent</strong>
+                            <p>La solidarité nationale doit d'abord bénéficier à ceux qui participent à l'effort collectif : travailleurs, familles, artisans, entrepreneurs.</p>
+                        </div>
+                    </div>
+                    <div class="value-point">
+                        <div class="value-point-icon">→</div>
+                        <div class="value-point-text">
+                            <strong>Refuser l'assistanat structurel</strong>
+                            <p>La vraie solidarité aide à se relever, elle n'installe pas dans la dépendance. Nous voulons des politiques sociales qui émancipent plutôt qu'elles n'enferment.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. FIERTÉ -->
+        <div class="value-section fade-in" id="fierte">
+            <div class="value-number-block">
+                <div class="value-number">6</div>
+                <div class="value-icon-emoji">✊</div>
+            </div>
+            <div class="value-content">
+                <h2>La Fierté</h2>
+                <span class="value-tagline">Assumer notre héritage sans repentance</span>
+                <p class="value-body-text">Nous refusons la repentance permanente et la culpabilisation de notre peuple. Reconnaître les erreurs de l'histoire ne signifie pas renier son héritage.</p>
+                <div class="value-points">
+                    <div class="value-point">
+                        <div class="value-point-icon">→</div>
+                        <div class="value-point-text">
+                            <strong>Refuser la repentance permanente</strong>
+                            <p>La France n'a pas à se flageller en permanence pour son passé. Nous regardons notre histoire avec lucidité, sans la nier ni nous y soumettre.</p>
+                        </div>
+                    </div>
+                    <div class="value-point">
+                        <div class="value-point-icon">→</div>
+                        <div class="value-point-text">
+                            <strong>Revendiquer notre héritage civilisationnel</strong>
+                            <p>La contribution de la France à l'humanité — arts, sciences, droit, philosophie — est immense. Nous en sommes fiers et le disons sans complexe.</p>
+                        </div>
+                    </div>
+                    <div class="value-point">
+                        <div class="value-point-icon">→</div>
+                        <div class="value-point-text">
+                            <strong>Lucidité sans culpabilisation</strong>
+                            <p>Reconnaître les pages sombres de notre histoire est un devoir de vérité. Cela n'autorise personne à instrumentaliser cette mémoire pour affaiblir l'identité nationale.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7. INDÉPENDANCE STRATÉGIQUE -->
+        <div class="value-section fade-in" id="independance">
+            <div class="value-number-block">
+                <div class="value-number">7</div>
+                <div class="value-icon-emoji">🛡️</div>
+            </div>
+            <div class="value-content">
+                <h2>L'Indépendance stratégique</h2>
+                <span class="value-tagline">Une nation libre maîtrise son avenir</span>
+                <p class="value-body-text">Une nation libre doit pouvoir assurer sa défense, son énergie et ses choix économiques essentiels. La dépendance stratégique, c'est la perte de souveraineté réelle.</p>
+                <div class="value-points">
+                    <div class="value-point">
+                        <div class="value-point-icon">→</div>
+                        <div class="value-point-text">
+                            <strong>Défense nationale souveraine</strong>
+                            <p>La France doit maintenir une capacité de défense autonome. Notre dissuasion et nos forces armées ne sauraient dépendre d'une décision étrangère.</p>
+                        </div>
+                    </div>
+                    <div class="value-point">
+                        <div class="value-point-icon">→</div>
+                        <div class="value-point-text">
+                            <strong>Indépendance énergétique</strong>
+                            <p>Maîtriser notre production d'énergie est une condition de notre liberté d'action politique et économique. Nous refusons toute dépendance subie.</p>
+                        </div>
+                    </div>
+                    <div class="value-point">
+                        <div class="value-point-icon">→</div>
+                        <div class="value-point-text">
+                            <strong>Autonomie économique et industrielle</strong>
+                            <p>Reconstituer un tissu industriel national dans les secteurs vitaux — alimentation, santé, technologie, armement — pour ne plus jamais subir les crises de dépendance.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ============================================
+     CTA FINAL
+============================================ -->
+<section class="cta">
+    <div class="cta-content">
+        <h2>Ces valeurs sont les vôtres ?</h2>
+        <p>Rejoignez l'association et participez à la construction d'un projet cohérent pour la France.</p>
+        <div class="cta-actions">
+            <a href="nous-soutenir.html" class="btn btn-secondary">Adhérer à l'association</a>
+            <a href="nous-soutenir.html#don" class="btn btn-don">Faire un don</a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     FOOTER
+============================================ -->
+<footer>
+    © 2026 Les Nationalistes.fr<br>
+    Association Citoyens Nationalistes Unis – Loi 1901
+</footer>
+
+<script>
+    // Header scroll
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('nav');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        nav.classList.toggle('active');
+    });
+
+    document.querySelectorAll('#nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            nav.classList.remove('active');
+        });
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !nav.contains(e.target)) {
+            hamburger.classList.remove('active');
+            nav.classList.remove('active');
+        }
+    });
+
+    // Fade-in au scroll avec décalage progressif
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => entry.target.classList.add('visible'), i * 80);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
