@@ -25,174 +25,580 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- JSON-LD NewsArticle Schema (will be injected by JavaScript) -->
-    <script type="application/ld+json" id="articleSchema">
-    </script>
+    <!-- JSON-LD NewsArticle Schema -->
+    <script type="application/ld+json" id="articleSchema"></script>
 
     <style>
-    :root {
-        --bleu-marine: #1a3a52;
-        --bleu-profond: #0d2436;
-        --bleu-ciel: #5b8fb9;
-        --or-subtil: #c5a572;
-        --gris-clair: #f4f6f8;
-        --gris-moyen: #e1e5ea;
-        --gris-fonce: #4a5568;
-        --blanc: #ffffff;
-        --texte: #1f2937;
-        --font-display: 'Spectral', serif;
-        --font-body: 'Source Sans 3', sans-serif;
-    }
+        /* ===== VARIABLES ===== */
+        :root {
+            --bleu-marine: #1a3a52;
+            --bleu-profond: #0d2436;
+            --bleu-ciel: #5b8fb9;
+            --or-subtil: #c5a572;
+            --gris-clair: #f4f6f8;
+            --gris-moyen: #e1e5ea;
+            --gris-fonce: #4a5568;
+            --blanc: #ffffff;
+            --texte: #1f2937;
+            --font-display: 'Spectral', serif;
+            --font-body: 'Source Sans 3', sans-serif;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* ===== RESET ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
-        font-family: var(--font-body);
-        color: var(--texte);
-        line-height: 1.6;
-        background: var(--gris-clair);
-    }
+        body {
+            font-family: var(--font-body);
+            color: var(--texte);
+            line-height: 1.6;
+            background: var(--gris-clair);
+            padding-top: 80px; /* Espace pour le header fixe */
+        }
 
-    /* HEADER SIMPLE */
-    header {
-        background: white;
-        border-bottom: 1px solid var(--gris-moyen);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-    }
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--bleu-marine);
+        }
 
-    .header-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 1rem 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+        a { text-decoration: none; color: inherit; }
 
-    .logo {
-        font-family: var(--font-display);
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--bleu-marine);
-    }
+        /* ===== HEADER FIXE ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--blanc);
+            border-bottom: 1px solid var(--gris-moyen);
+            z-index: 1000;
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
 
-    nav a {
-        margin-left: 2rem;
-        color: var(--gris-fonce);
-        text-decoration: none;
-    }
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
 
-    /* ARTICLE - VERSION SIMPLIFIÉE */
-    .article-container {
-        max-width: 800px;
-        margin: 2rem auto;
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        overflow: hidden;
-    }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--bleu-marine);
+        }
 
-    .article-header {
-        padding: 2rem 2rem 1rem;
-        border-bottom: 1px solid var(--gris-moyen);
-    }
+        .logo-image {
+            height: 45px;
+            width: auto;
+        }
 
-    .article-meta {
-        display: flex;
-        gap: 1rem;
-        margin-bottom: 1rem;
-        font-size: 0.9rem;
-    }
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
 
-    .article-categorie {
-        background: var(--bleu-marine);
-        color: white;
-        padding: 0.2rem 0.8rem;
-        border-radius: 20px;
-        font-weight: 600;
-    }
+        nav a {
+            font-weight: 500;
+            color: var(--gris-fonce);
+            transition: var(--transition);
+        }
 
-    .article-date, .article-auteur {
-        color: var(--gris-fonce);
-    }
+        nav a:hover {
+            color: var(--bleu-marine);
+        }
 
-    .article-header h1 {
-        font-family: var(--font-display);
-        font-size: 2rem;
-        line-height: 1.3;
-        color: var(--bleu-marine);
-        margin-bottom: 1rem;
-    }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
 
-    .article-resume {
-        font-size: 1.1rem;
-        color: var(--gris-fonce);
-        font-style: italic;
-        padding: 1rem;
-        background: var(--gris-clair);
-        border-radius: 8px;
-        margin-top: 1rem;
-    }
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--bleu-marine);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
 
-    .article-image {
-        width: 100%;
-        max-height: 400px;
-        object-fit: cover;
-    }
+        .header-cta {
+            display: flex;
+            gap: 1rem;
+        }
 
-    .article-content {
-        padding: 2rem;
-        font-size: 1.1rem;
-    }
+        .mobile-cta {
+            display: none;
+        }
 
-    .article-content p {
-        margin-bottom: 1.5rem;
-    }
+        /* ===== BOUTONS ===== */
+        .btn {
+            padding: 0.6rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+        }
 
-    .article-content h2 {
-        font-family: var(--font-display);
-        font-size: 1.6rem;
-        margin: 2rem 0 1rem;
-        color: var(--bleu-marine);
-    }
+        .btn-primary {
+            background: var(--bleu-marine);
+            color: white;
+        }
 
-    .article-content blockquote {
-        margin: 2rem 0;
-        padding: 1rem 2rem;
-        background: var(--gris-clair);
-        border-left: 4px solid var(--or-subtil);
-        font-style: italic;
-    }
+        .btn-primary:hover {
+            background: var(--bleu-profond);
+        }
 
-    .article-footer {
-        padding: 1rem 2rem 2rem;
-        text-align: center;
-    }
+        .btn-don {
+            background: #2d7a4f;
+            color: white;
+        }
 
-    .btn {
-        display: inline-block;
-        padding: 0.8rem 2rem;
-        background: var(--bleu-marine);
-        color: white;
-        text-decoration: none;
-        border-radius: 6px;
-        transition: 0.3s;
-    }
+        .btn-don:hover {
+            background: #246340;
+        }
 
-    .btn:hover {
-        background: var(--bleu-profond);
-    }
+        .btn-secondary {
+            background: var(--gris-clair);
+            color: var(--bleu-marine);
+            border: 1px solid var(--gris-moyen);
+        }
 
-    footer {
-        text-align: center;
-        padding: 2rem;
-        color: var(--gris-fonce);
-    }
-</style>
+        .btn-secondary:hover {
+            background: white;
+        }
+
+        /* ===== BREADCRUMB ===== */
+        .breadcrumb {
+            background: white;
+            border-bottom: 1px solid var(--gris-moyen);
+            padding: 1rem 2rem;
+        }
+
+        .breadcrumb-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--bleu-ciel);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--bleu-marine);
+        }
+
+        /* ===== ARTICLE ===== */
+        .article-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .article-header {
+            padding: 2rem 2rem 1rem;
+            border-bottom: 1px solid var(--gris-moyen);
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .article-categorie {
+            background: var(--bleu-marine);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .article-date, .article-auteur {
+            color: var(--gris-fonce);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .article-header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .article-resume {
+            font-size: 1.1rem;
+            color: var(--gris-fonce);
+            font-style: italic;
+            padding: 1rem 1.5rem;
+            background: var(--gris-clair);
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .article-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+        }
+
+        .article-content {
+            padding: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content p:first-of-type {
+            margin-top: 0;
+        }
+
+        .article-content h2 {
+            font-size: 1.8rem;
+            margin: 2.5rem 0 1rem;
+        }
+
+        .article-content h3 {
+            font-size: 1.4rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .article-content blockquote {
+            background: var(--gris-clair);
+            border-left: 5px solid var(--or-subtil);
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .article-footer {
+            padding: 1.5rem 2rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--gris-moyen);
+        }
+
+        /* ===== COMMENTAIRES ===== */
+        .comments-section {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .comments-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .comment-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 3rem;
+        }
+
+        .comment-form h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--gris-moyen);
+            border-radius: 6px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--bleu-ciel);
+        }
+
+        .comments-list {
+            margin-top: 3rem;
+        }
+
+        .no-comments {
+            text-align: center;
+            padding: 3rem;
+            background: white;
+            border-radius: 12px;
+            color: var(--gris-fonce);
+        }
+
+        .comment {
+            background: white;
+            border: 1px solid var(--gris-moyen);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .comment-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .comment-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bleu-ciel);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .comment-author-info h4 {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .comment-date {
+            font-size: 0.85rem;
+            color: var(--gris-fonce);
+        }
+
+        .comment-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn-comment {
+            padding: 0.3rem 0.8rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .btn-reply {
+            background: var(--bleu-ciel);
+            color: white;
+        }
+
+        .btn-delete {
+            background: #dc3545;
+            color: white;
+            display: none;
+        }
+
+        .moderation-mode .btn-delete {
+            display: inline-block;
+        }
+
+        .comment-reply {
+            margin-left: 3rem;
+            background: var(--gris-clair);
+        }
+
+        .reply-form {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: var(--gris-clair);
+            border-radius: 8px;
+            display: none;
+        }
+
+        .reply-form.active {
+            display: block;
+        }
+
+        .moderation-panel {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .moderation-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .moderation-access {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .btn-moderation-access {
+            background: transparent;
+            border: 1px solid var(--gris-moyen);
+            color: var(--gris-fonce);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        /* ===== LOADER & ERROR ===== */
+        .loader, .error-state {
+            text-align: center;
+            padding: 5rem 2rem;
+            max-width: 900px;
+            margin: 2rem auto;
+            background: white;
+            border-radius: 12px;
+        }
+
+        .error-state h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--bleu-profond);
+            color: rgba(255,255,255,0.7);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 1.5rem;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                gap: 0;
+                padding: 2rem;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                transform: translateY(-150%);
+                opacity: 0;
+                transition: var(--transition);
+                max-height: calc(100vh - 80px);
+                overflow-y: auto;
+            }
+
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            nav a {
+                padding: 1rem 0;
+                border-bottom: 1px solid var(--gris-moyen);
+                width: 100%;
+            }
+
+            .header-cta {
+                display: none;
+            }
+
+            .mobile-cta {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                margin-top: 1.5rem;
+                padding-top: 1.5rem;
+                border-top: 2px solid var(--gris-moyen);
+            }
+
+            .mobile-cta .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .article-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .comment-reply {
+                margin-left: 1rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
 <!-- HEADER -->
@@ -248,7 +654,7 @@
     <a href="actualites.html" class="btn btn-primary">← Retour aux actualités</a>
 </div>
 
-<!-- ARTICLE (Structure vide, remplie par JavaScript) -->
+<!-- ARTICLE -->
 <article class="article-container" id="articleContainer" style="display: none;">
     <header class="article-header">
         <div class="article-meta">
@@ -257,13 +663,11 @@
             <span class="article-auteur" id="articleAuteur"></span>
         </div>
         <h1 id="articleTitre"></h1>
-        <p class="article-resume" id="articleResume"></p>
+        <div class="article-resume" id="articleResume"></div>
     </header>
 
-    <!-- Conteneur image (caché par défaut) -->
-    <figure style="margin: 2rem 0; text-align: center; display: none;" id="imageFigure">
+    <figure id="imageFigure" style="margin: 0; display: none;">
         <img id="articleImage" class="article-image" alt="">
-        <figcaption class="image-caption" id="imageCaption"></figcaption>
     </figure>
 
     <div class="article-content" id="articleContenu"></div>
@@ -272,7 +676,6 @@
     <section class="comments-section" id="commentsSection">
         <h2>Commentaires (<span id="commentsCount">0</span>)</h2>
         
-        <!-- Formulaire d'ajout de commentaire -->
         <div class="comment-form">
             <h3>Laissez un commentaire</h3>
             <form id="commentForm">
@@ -282,7 +685,7 @@
                         <input type="text" id="commentName" required placeholder="Votre nom">
                     </div>
                     <div class="form-group">
-                        <label for="commentEmail">Email (non publié) *</label>
+                        <label for="commentEmail">Email *</label>
                         <input type="email" id="commentEmail" required placeholder="votre@email.com">
                     </div>
                 </div>
@@ -290,16 +693,14 @@
                     <label for="commentText">Votre commentaire *</label>
                     <textarea id="commentText" required rows="4" placeholder="Partagez votre point de vue..."></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Publier le commentaire</button>
+                <button type="submit" class="btn btn-primary">Publier</button>
             </form>
         </div>
 
-        <!-- Liste des commentaires -->
         <div class="comments-list" id="commentsList">
             <p class="no-comments">Aucun commentaire pour le moment. Soyez le premier à réagir !</p>
         </div>
 
-        <!-- Panel de modération (visible uniquement pour l'admin) -->
         <div class="moderation-panel" id="moderationPanel" style="display: none;">
             <div class="moderation-header">
                 <h3>🔒 Mode modération</h3>
@@ -307,7 +708,6 @@
             </div>
         </div>
 
-        <!-- Bouton d'accès modération (discret) -->
         <div class="moderation-access">
             <button onclick="promptModeration()" class="btn-moderation-access">
                 Accès modération
@@ -327,7 +727,7 @@
 </footer>
 
 <script>
-    // Header scroll
+    // Header scroll effect
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
         header.classList.toggle('scrolled', window.scrollY > 50);
@@ -377,63 +777,28 @@
     }
 
     function displayArticle(article) {
-        // Hide loader and show article
         document.getElementById('loader').style.display = 'none';
         document.getElementById('articleContainer').style.display = 'block';
 
-        // Mettre à jour les meta tags
+        // Meta tags
         const pageTitle = `${article.titre} – Les Nationalistes.fr`;
         document.getElementById('pageTitle').textContent = pageTitle;
         document.title = pageTitle;
         
         document.getElementById('pageDescription').setAttribute('content', article.resume);
-        document.getElementById('pageKeywords').setAttribute('content', `${article.categorie}, ${article.titre}, débat citoyen, souveraineté, France`);
         document.getElementById('pageCanonical').setAttribute('href', `https://www.lesnationalistes.fr/article.html?id=${article.id}`);
 
         // Open Graph
         document.getElementById('ogTitle').setAttribute('content', article.titre);
         document.getElementById('ogDescription').setAttribute('content', article.resume);
-        document.getElementById('ogImage').setAttribute('content', `https://www.lesnationalistes.fr/${article.image}`);
         document.getElementById('ogUrl').setAttribute('content', `https://www.lesnationalistes.fr/article.html?id=${article.id}`);
 
-        // Twitter Card
-        document.getElementById('twitterTitle').setAttribute('content', article.titre);
-        document.getElementById('twitterDescription').setAttribute('content', article.resume);
-        document.getElementById('twitterImage').setAttribute('content', `https://www.lesnationalistes.fr/${article.image}`);
+        if (article.image) {
+            document.getElementById('ogImage').setAttribute('content', `https://www.lesnationalistes.fr/${article.image}`);
+            document.getElementById('twitterImage').setAttribute('content', `https://www.lesnationalistes.fr/${article.image}`);
+        }
 
-        // JSON-LD Schema
-        const schema = {
-            "@context": "https://schema.org",
-            "@type": "NewsArticle",
-            "headline": article.titre,
-            "description": article.resume,
-            "image": `https://www.lesnationalistes.fr/${article.image}`,
-            "datePublished": article.date,
-            "dateModified": article.date,
-            "author": {
-                "@type": "Organization",
-                "name": article.auteur
-            },
-            "publisher": {
-                "@type": "Organization",
-                "name": "Association Citoyens Nationalistes Unis",
-                "logo": {
-                    "@type": "ImageObject",
-                    "url": "https://www.lesnationalistes.fr/logo.png"
-                }
-            },
-            "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": `https://www.lesnationalistes.fr/article.html?id=${article.id}`
-            },
-            "articleSection": article.categorie,
-            "inLanguage": "fr-FR",
-            "keywords": `${article.categorie}, débat citoyen, souveraineté nationale, France`
-        };
-
-        document.getElementById('articleSchema').textContent = JSON.stringify(schema, null, 2);
-
-        // Afficher le contenu
+        // Contenu
         document.getElementById('breadcrumbTitle').textContent = article.titre;
         document.getElementById('articleCategorie').textContent = article.categorie;
         document.getElementById('articleDate').textContent = formatDate(article.date);
@@ -442,33 +807,21 @@
         document.getElementById('articleResume').textContent = article.resume;
         document.getElementById('articleContenu').innerHTML = article.contenu;
 
-        // Gestion de l'image
-        const imageElement = document.getElementById('articleImage');
+        // Image
         const imageFigure = document.getElementById('imageFigure');
-        const imageCaption = document.getElementById('imageCaption');
+        const imageElement = document.getElementById('articleImage');
         
         if (article.image && article.image !== '') {
-            // Construire le chemin de l'image
             let imagePath = article.image;
-            // Si le chemin ne commence pas par http et ne contient pas déjà 'images/', on ajoute 'images/'
             if (!imagePath.startsWith('http') && !imagePath.startsWith('images/')) {
                 imagePath = 'images/' + imagePath;
             }
-            
             imageElement.src = imagePath;
             imageElement.alt = article.titre;
-            
-            // Afficher la figure
             imageFigure.style.display = 'block';
             
-            // Ajouter une légende (titre par défaut, ou custom si disponible)
-            imageCaption.textContent = article.imageCaption || article.titre;
-            
-            // Gestion des erreurs de chargement
             imageElement.onerror = function() {
-                console.log('Image non trouvée:', imagePath);
                 imageFigure.style.display = 'none';
-                // Optionnel : afficher un message dans la console mais pas à l'utilisateur
             };
         } else {
             imageFigure.style.display = 'none';
@@ -481,25 +834,22 @@
     }
 
     function formatDate(dateString) {
-        const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        return new Date(dateString).toLocaleDateString('fr-FR', options);
+        return new Date(dateString).toLocaleDateString('fr-FR', {
+            year: 'numeric', month: 'long', day: 'numeric'
+        });
     }
 
-    // Load article on page load
+    // Chargement initial
     if (articleId) {
         loadArticle();
     } else {
         showError();
     }
 
-    // ============================================
-    // SYSTÈME DE COMMENTAIRES
-    // ============================================
-
+    // ===== SYSTÈME DE COMMENTAIRES =====
     let isModeration = false;
-    const MODERATION_PASSWORD = 'admin123'; // ⚠️ CHANGEZ CE MOT DE PASSE !
+    const MODERATION_PASSWORD = 'admin123';
 
-    // Charger les commentaires
     function loadComments() {
         if (!articleId) return;
         
@@ -516,44 +866,30 @@
             }
 
             const comments = JSON.parse(commentsData);
+            document.getElementById('commentsCount').textContent = comments.length;
             
             if (comments.length === 0) {
-                commentsList.innerHTML = '<p class="no-comments">Aucun commentaire pour le moment. Soyez le premier à réagir !</p>';
-                document.getElementById('commentsCount').textContent = '0';
+                commentsList.innerHTML = '<p class="no-comments">Aucun commentaire pour le moment.</p>';
                 return;
             }
 
-            document.getElementById('commentsCount').textContent = comments.length;
             displayComments(comments);
-
         } catch (error) {
-            console.log('Pas encore de commentaires', error);
-            commentsList.innerHTML = '<p class="no-comments">Aucun commentaire pour le moment. Soyez le premier à réagir !</p>';
-            document.getElementById('commentsCount').textContent = '0';
+            console.log('Erreur chargement commentaires');
         }
     }
 
-    // Afficher les commentaires
     function displayComments(comments) {
         const commentsList = document.getElementById('commentsList');
         
-        if (comments.length === 0) {
-            commentsList.innerHTML = '<p class="no-comments">Aucun commentaire pour le moment.</p>';
-            return;
-        }
-
         commentsList.innerHTML = comments.map(comment => {
             const initial = comment.author.charAt(0).toUpperCase();
             const date = new Date(comment.date).toLocaleDateString('fr-FR', {
-                day: 'numeric',
-                month: 'long',
-                year: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit'
+                day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit'
             });
 
-            let html = `
-                <div class="comment ${comment.isReply ? 'comment-reply' : ''}" data-id="${comment.id}">
+            return `
+                <div class="comment" data-id="${comment.id}">
                     <div class="comment-header">
                         <div class="comment-author">
                             <div class="comment-avatar">${initial}</div>
@@ -563,75 +899,54 @@
                             </div>
                         </div>
                         <div class="comment-actions">
-                            ${!comment.isReply ? `<button class="btn-comment btn-reply" onclick="showReplyForm('${comment.id}')">Répondre</button>` : ''}
+                            <button class="btn-comment btn-reply" onclick="showReplyForm('${comment.id}')">Répondre</button>
                             <button class="btn-comment btn-delete" onclick="deleteComment('${comment.id}')">Supprimer</button>
                         </div>
                     </div>
                     <div class="comment-text">${escapeHtml(comment.text)}</div>
-                    ${!comment.isReply ? `
-                        <div class="reply-form" id="reply-${comment.id}">
-                            <textarea placeholder="Votre réponse..." rows="3" id="reply-text-${comment.id}"></textarea>
-                            <div style="display: flex; gap: 0.5rem;">
-                                <button class="btn btn-primary btn-sm" onclick="submitReply('${comment.id}')">Envoyer</button>
-                                <button class="btn btn-secondary btn-sm" onclick="hideReplyForm('${comment.id}')">Annuler</button>
-                            </div>
+                    <div class="reply-form" id="reply-${comment.id}">
+                        <textarea placeholder="Votre réponse..." rows="3" id="reply-text-${comment.id}"></textarea>
+                        <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+                            <button class="btn btn-primary btn-sm" onclick="submitReply('${comment.id}')">Envoyer</button>
+                            <button class="btn btn-secondary btn-sm" onclick="hideReplyForm('${comment.id}')">Annuler</button>
                         </div>
-                    ` : ''}
+                    </div>
                 </div>
-            `;
-
-            // Ajouter les réponses
-            if (comment.replies && comment.replies.length > 0) {
-                comment.replies.forEach(reply => {
-                    const replyInitial = reply.author.charAt(0).toUpperCase();
-                    const replyDate = new Date(reply.date).toLocaleDateString('fr-FR', {
-                        day: 'numeric',
-                        month: 'long',
-                        year: 'numeric',
-                        hour: '2-digit',
-                        minute: '2-digit'
-                    });
-
-                    html += `
-                        <div class="comment comment-reply" data-id="${reply.id}">
-                            <div class="comment-header">
-                                <div class="comment-author">
-                                    <div class="comment-avatar" style="background: var(--or-subtil);">${replyInitial}</div>
-                                    <div class="comment-author-info">
-                                        <h4>${reply.author}</h4>
-                                        <span class="comment-date">${replyDate}</span>
-                                    </div>
-                                </div>
-                                <div class="comment-actions">
-                                    <button class="btn-comment btn-delete" onclick="deleteReply('${comment.id}', '${reply.id}')">Supprimer</button>
+                ${(comment.replies || []).map(reply => `
+                    <div class="comment comment-reply" data-id="${reply.id}">
+                        <div class="comment-header">
+                            <div class="comment-author">
+                                <div class="comment-avatar" style="background: var(--or-subtil);">${reply.author.charAt(0).toUpperCase()}</div>
+                                <div class="comment-author-info">
+                                    <h4>${reply.author}</h4>
+                                    <span class="comment-date">${new Date(reply.date).toLocaleDateString('fr-FR')}</span>
                                 </div>
                             </div>
-                            <div class="comment-text">${escapeHtml(reply.text)}</div>
+                            <div class="comment-actions">
+                                <button class="btn-comment btn-delete" onclick="deleteReply('${comment.id}', '${reply.id}')">Supprimer</button>
+                            </div>
                         </div>
-                    `;
-                });
-            }
-
-            return html;
+                        <div class="comment-text">${escapeHtml(reply.text)}</div>
+                    </div>
+                `).join('')}
+            `;
         }).join('');
     }
 
-    // Échapper le HTML
     function escapeHtml(text) {
         const div = document.createElement('div');
         div.textContent = text;
-        return div.innerHTML.replace(/\n/g, '<br>');
+        return div.innerHTML;
     }
 
-    // Soumettre un commentaire
+    // Formulaire commentaire
     document.getElementById('commentForm').addEventListener('submit', function(e) {
         e.preventDefault();
 
         const name = document.getElementById('commentName').value.trim();
-        const email = document.getElementById('commentEmail').value.trim();
         const text = document.getElementById('commentText').value.trim();
 
-        if (!name || !email || !text) {
+        if (!name || !text) {
             alert('Veuillez remplir tous les champs');
             return;
         }
@@ -639,7 +954,6 @@
         const newComment = {
             id: Date.now().toString(),
             author: name,
-            email: email,
             text: text,
             date: new Date().toISOString(),
             replies: []
@@ -647,57 +961,30 @@
 
         try {
             const commentsKey = `comments_${articleId}`;
-            let comments = [];
-
-            const existingComments = localStorage.getItem(commentsKey);
-            if (existingComments) {
-                comments = JSON.parse(existingComments);
-            }
-
+            let comments = JSON.parse(localStorage.getItem(commentsKey) || '[]');
             comments.unshift(newComment);
             localStorage.setItem(commentsKey, JSON.stringify(comments));
 
-            // Réinitialiser le formulaire
             document.getElementById('commentForm').reset();
-
-            // Recharger les commentaires
             loadComments();
-
-            alert('Commentaire publié avec succès !');
-
+            alert('Commentaire publié !');
         } catch (error) {
-            console.error('Erreur:', error);
-            alert('Erreur lors de la publication du commentaire. Vérifiez que votre navigateur autorise le stockage local.');
+            alert('Erreur lors de la publication');
         }
     });
 
-    // Afficher le formulaire de réponse
     function showReplyForm(commentId) {
-        hideAllReplyForms();
+        document.querySelectorAll('.reply-form').forEach(f => f.classList.remove('active'));
         document.getElementById(`reply-${commentId}`).classList.add('active');
     }
 
-    // Masquer le formulaire de réponse
     function hideReplyForm(commentId) {
         document.getElementById(`reply-${commentId}`).classList.remove('active');
-        document.getElementById(`reply-text-${commentId}`).value = '';
     }
 
-    // Masquer tous les formulaires de réponse
-    function hideAllReplyForms() {
-        document.querySelectorAll('.reply-form').forEach(form => {
-            form.classList.remove('active');
-        });
-    }
-
-    // Soumettre une réponse
     function submitReply(commentId) {
         const text = document.getElementById(`reply-text-${commentId}`).value.trim();
-
-        if (!text) {
-            alert('Veuillez écrire une réponse');
-            return;
-        }
+        if (!text) return alert('Veuillez écrire une réponse');
 
         const author = prompt('Votre nom :');
         if (!author) return;
@@ -709,102 +996,63 @@
             date: new Date().toISOString()
         };
 
-        try {
-            const commentsKey = `comments_${articleId}`;
-            const commentsData = localStorage.getItem(commentsKey);
-            const comments = JSON.parse(commentsData);
-
-            const comment = comments.find(c => c.id === commentId);
-            if (comment) {
-                if (!comment.replies) comment.replies = [];
-                comment.replies.push(newReply);
-                localStorage.setItem(commentsKey, JSON.stringify(comments));
-                hideReplyForm(commentId);
-                loadComments();
-                alert('Réponse publiée avec succès !');
-            }
-
-        } catch (error) {
-            console.error('Erreur:', error);
-            alert('Erreur lors de la publication de la réponse');
+        const commentsKey = `comments_${articleId}`;
+        const comments = JSON.parse(localStorage.getItem(commentsKey) || '[]');
+        const comment = comments.find(c => c.id === commentId);
+        
+        if (comment) {
+            comment.replies = comment.replies || [];
+            comment.replies.push(newReply);
+            localStorage.setItem(commentsKey, JSON.stringify(comments));
+            hideReplyForm(commentId);
+            loadComments();
         }
     }
 
-    // Supprimer un commentaire
     function deleteComment(commentId) {
-        if (!isModeration) {
-            alert('Vous devez être en mode modération');
-            return;
-        }
-
+        if (!isModeration) return alert('Mode modération requis');
         if (!confirm('Supprimer ce commentaire ?')) return;
 
-        try {
-            const commentsKey = `comments_${articleId}`;
-            const commentsData = localStorage.getItem(commentsKey);
-            let comments = JSON.parse(commentsData);
-
-            comments = comments.filter(c => c.id !== commentId);
-            localStorage.setItem(commentsKey, JSON.stringify(comments));
-
-            loadComments();
-            alert('Commentaire supprimé');
-
-        } catch (error) {
-            console.error('Erreur:', error);
-            alert('Erreur lors de la suppression');
-        }
+        const commentsKey = `comments_${articleId}`;
+        let comments = JSON.parse(localStorage.getItem(commentsKey) || '[]');
+        comments = comments.filter(c => c.id !== commentId);
+        localStorage.setItem(commentsKey, JSON.stringify(comments));
+        loadComments();
     }
 
-    // Supprimer une réponse
     function deleteReply(commentId, replyId) {
-        if (!isModeration) {
-            alert('Vous devez être en mode modération');
-            return;
-        }
-
+        if (!isModeration) return alert('Mode modération requis');
         if (!confirm('Supprimer cette réponse ?')) return;
 
-        try {
-            const commentsKey = `comments_${articleId}`;
-            const commentsData = localStorage.getItem(commentsKey);
-            const comments = JSON.parse(commentsData);
-
-            const comment = comments.find(c => c.id === commentId);
-            if (comment && comment.replies) {
-                comment.replies = comment.replies.filter(r => r.id !== replyId);
-                localStorage.setItem(commentsKey, JSON.stringify(comments));
-                loadComments();
-                alert('Réponse supprimée');
-            }
-
-        } catch (error) {
-            console.error('Erreur:', error);
-            alert('Erreur lors de la suppression');
+        const commentsKey = `comments_${articleId}`;
+        const comments = JSON.parse(localStorage.getItem(commentsKey) || '[]');
+        const comment = comments.find(c => c.id === commentId);
+        
+        if (comment && comment.replies) {
+            comment.replies = comment.replies.filter(r => r.id !== replyId);
+            localStorage.setItem(commentsKey, JSON.stringify(comments));
+            loadComments();
         }
     }
 
-    // Activer le mode modération
     function promptModeration() {
         const password = prompt('Mot de passe modération :');
         if (password === MODERATION_PASSWORD) {
             isModeration = true;
             document.getElementById('moderationPanel').style.display = 'block';
             document.getElementById('commentsSection').classList.add('moderation-mode');
-            alert('Mode modération activé ✅');
         } else if (password) {
             alert('Mot de passe incorrect');
         }
     }
 
-    // Désactiver le mode modération
     function toggleModeration() {
         isModeration = false;
         document.getElementById('moderationPanel').style.display = 'none';
         document.getElementById('commentsSection').classList.remove('moderation-mode');
     }
 
-    // Charger les commentaires au chargement de la page
+    // Charger les commentaires
     if (articleId) {
         loadComments();
     }
