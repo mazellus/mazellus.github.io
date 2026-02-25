@@ -188,22 +188,37 @@
 
         .breadcrumb span { color: var(--gris-fonce); }
 
-        /* ARTICLE */
+        /* ARTICLE - VERSION AMÉLIORÉE */
         .article-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 4rem 3rem;
+            max-width: 800px;
+            margin: 2rem auto 4rem;
+            padding: 2rem 2rem 4rem;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 24px 24px 0 0;
         }
 
         .article-header {
+            text-align: center;
             margin-bottom: 3rem;
+            border-bottom: 2px solid var(--gris-moyen);
+            padding-bottom: 2rem;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 1.5rem 0;
+            font-weight: 700;
+            color: var(--bleu-marine);
         }
 
         .article-meta {
             display: flex;
             gap: 1.5rem;
             align-items: center;
-            margin-bottom: 1.5rem;
+            justify-content: center;
+            margin-bottom: 1rem;
             flex-wrap: wrap;
         }
 
@@ -242,41 +257,65 @@
             content: '✍️';
         }
 
-        .article-header h1 {
-            font-size: 3rem;
-            color: var(--bleu-marine);
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-
         .article-resume {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             color: var(--gris-fonce);
             font-style: italic;
+            max-width: 700px;
+            margin: 1.5rem auto 0;
             line-height: 1.6;
-            padding-left: 1.5rem;
-            border-left: 4px solid var(--or-subtil);
+            border-left: none;
+            padding: 1rem 2rem;
+            background: var(--gris-clair);
+            border-radius: 12px;
         }
 
         .article-image {
             width: 100%;
-            max-width: 100%;
-            height: auto;
+            max-height: 500px;
+            object-fit: cover;
             border-radius: 16px;
-            margin: 2rem 0 3rem;
             box-shadow: var(--shadow-md);
+        }
+
+        .image-caption {
+            margin-top: 0.5rem;
+            color: var(--gris-fonce);
+            font-style: italic;
+            font-size: 0.9rem;
+            text-align: center;
         }
 
         .article-content {
             font-size: 1.1rem;
             line-height: 1.8;
             color: var(--texte);
+            max-width: 700px;
+            margin: 2rem auto 0;
+        }
+
+        .article-content p:first-of-type {
+            font-size: 1.2rem;
+            color: var(--bleu-marine);
+            font-weight: 500;
         }
 
         .article-content h2 {
             font-size: 2rem;
             margin: 3rem 0 1.5rem;
             color: var(--bleu-marine);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .article-content h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--or-subtil);
         }
 
         .article-content h3 {
@@ -321,12 +360,14 @@
         }
 
         .article-content blockquote {
+            font-size: 1.2rem;
             background: var(--gris-clair);
             border-left: 5px solid var(--or-subtil);
-            padding: 1.5rem 2rem;
+            padding: 2rem;
             margin: 2rem 0;
-            font-style: italic;
             border-radius: 0 12px 12px 0;
+            font-style: italic;
+            color: var(--bleu-marine);
         }
 
         .article-content img {
@@ -354,13 +395,14 @@
             margin-top: 4rem;
             padding-top: 2rem;
             border-top: 2px solid var(--gris-moyen);
+            text-align: center;
         }
 
         /* COMMENTAIRES */
         .comments-section {
-            max-width: 900px;
-            margin: 4rem auto 2rem;
-            padding: 0 3rem;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            padding: 0 2rem;
         }
 
         .comments-section h2 {
@@ -600,6 +642,8 @@
         .error-state {
             text-align: center;
             padding: 5rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .error-state h1 {
@@ -652,16 +696,14 @@
             .mobile-cta .btn { width: 100%; justify-content: center; }
 
             .breadcrumb { padding: 1rem 1.5rem; }
-            .article-container { padding: 3rem 1.5rem; }
+            .article-container { padding: 2rem 1.5rem; }
             .article-header h1 { font-size: 2rem; }
-            .article-resume { font-size: 1.1rem; }
+            .article-resume { font-size: 1.1rem; padding: 1rem; }
             .article-content { font-size: 1.05rem; }
             .article-content h2 { font-size: 1.6rem; }
-
-            /* Commentaires mobile */
-            .comments-section { padding: 0 1.5rem; }
+            
             .form-row { grid-template-columns: 1fr; gap: 0; }
-            .comment-form { padding: 1.5rem; }
+            .comments-section { padding: 0 1.5rem; }
             .comment { padding: 1rem; }
             .comment-reply { margin-left: 1rem; }
             .comment-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
@@ -724,7 +766,7 @@
     <a href="actualites.html" class="btn btn-primary">← Retour aux actualités</a>
 </div>
 
-<!-- ARTICLE -->
+<!-- ARTICLE (Structure vide, remplie par JavaScript) -->
 <article class="article-container" id="articleContainer" style="display: none;">
     <header class="article-header">
         <div class="article-meta">
@@ -736,7 +778,11 @@
         <p class="article-resume" id="articleResume"></p>
     </header>
 
-    <img id="articleImage" class="article-image" alt="">
+    <!-- Conteneur image (caché par défaut) -->
+    <figure style="margin: 2rem 0; text-align: center; display: none;" id="imageFigure">
+        <img id="articleImage" class="article-image" alt="">
+        <figcaption class="image-caption" id="imageCaption"></figcaption>
+    </figure>
 
     <div class="article-content" id="articleContenu"></div>
 
@@ -849,11 +895,11 @@
     }
 
     function displayArticle(article) {
-        // Hide loader
+        // Hide loader and show article
         document.getElementById('loader').style.display = 'none';
         document.getElementById('articleContainer').style.display = 'block';
 
-        // Update meta tags
+        // Mettre à jour les meta tags
         const pageTitle = `${article.titre} – Les Nationalistes.fr`;
         document.getElementById('pageTitle').textContent = pageTitle;
         document.title = pageTitle;
@@ -905,16 +951,46 @@
 
         document.getElementById('articleSchema').textContent = JSON.stringify(schema, null, 2);
 
-        // Display content
+        // Afficher le contenu
         document.getElementById('breadcrumbTitle').textContent = article.titre;
         document.getElementById('articleCategorie').textContent = article.categorie;
         document.getElementById('articleDate').textContent = formatDate(article.date);
         document.getElementById('articleAuteur').textContent = article.auteur;
         document.getElementById('articleTitre').textContent = article.titre;
         document.getElementById('articleResume').textContent = article.resume;
-        document.getElementById('articleImage').src = article.image;
-        document.getElementById('articleImage').alt = article.titre;
         document.getElementById('articleContenu').innerHTML = article.contenu;
+
+        // Gestion de l'image
+        const imageElement = document.getElementById('articleImage');
+        const imageFigure = document.getElementById('imageFigure');
+        const imageCaption = document.getElementById('imageCaption');
+        
+        if (article.image && article.image !== '') {
+            // Construire le chemin de l'image
+            let imagePath = article.image;
+            // Si le chemin ne commence pas par http et ne contient pas déjà 'images/', on ajoute 'images/'
+            if (!imagePath.startsWith('http') && !imagePath.startsWith('images/')) {
+                imagePath = 'images/' + imagePath;
+            }
+            
+            imageElement.src = imagePath;
+            imageElement.alt = article.titre;
+            
+            // Afficher la figure
+            imageFigure.style.display = 'block';
+            
+            // Ajouter une légende (titre par défaut, ou custom si disponible)
+            imageCaption.textContent = article.imageCaption || article.titre;
+            
+            // Gestion des erreurs de chargement
+            imageElement.onerror = function() {
+                console.log('Image non trouvée:', imagePath);
+                imageFigure.style.display = 'none';
+                // Optionnel : afficher un message dans la console mais pas à l'utilisateur
+            };
+        } else {
+            imageFigure.style.display = 'none';
+        }
     }
 
     function showError() {
@@ -928,7 +1004,11 @@
     }
 
     // Load article on page load
-    loadArticle();
+    if (articleId) {
+        loadArticle();
+    } else {
+        showError();
+    }
 
     // ============================================
     // SYSTÈME DE COMMENTAIRES
@@ -939,6 +1019,8 @@
 
     // Charger les commentaires
     function loadComments() {
+        if (!articleId) return;
+        
         const commentsList = document.getElementById('commentsList');
         
         try {
